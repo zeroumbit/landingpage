@@ -197,7 +197,8 @@ a {
   font-weight: 800;
 }
 
-.hero h1 {
+.hero h1,
+.hero-title {
   width: 100%;
   max-width: 980px;
   margin: 24px auto 18px;
@@ -752,12 +753,14 @@ a {
     padding-top: 48px;
   }
 
-  .hero h1 {
+  .hero h1,
+  .hero-title {
     font-size: 58px;
   }
 
   .platform-title span,
-  .hero h1 span {
+  .hero h1 span,
+  .hero-title span {
     white-space: normal;
   }
 
