@@ -17,7 +17,7 @@ interface ProductCard {
       <nav class="topbar" aria-label="Navegacao principal">
         <a class="brand" href="#inicio" aria-label="ZERO1BIT">
           <img src="/ZEROUM.svg" alt="ZERO1BIT" />
-          <span>ZERO1BIT</span>
+          <span class="brand-name">ZERO1BIT</span>
         </a>
 
         <div class="nav-links">
@@ -29,13 +29,14 @@ interface ProductCard {
 
         <a class="nav-phone" href="https://wa.me/5585997277128" target="_blank" rel="noopener">
           <img src="/icon-whatsapp.svg" alt="WhatsApp" width="20" height="20" />
-          <span>(85) 9 9727-7128</span>
+          <span class="nav-label">(85) 9 9727-7128</span>
         </a>
         <a class="button button-dark" href="mailto:zeroumbit@gmail.com">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="4" width="20" height="16" rx="2"/>
             <path d="m22 7-10 7L2 7"/>
           </svg>
+          <span class="nav-label">Fale conosco</span>
         </a>
       </nav>
 
@@ -64,7 +65,7 @@ interface ProductCard {
           </p>
 
           <div class="hero-actions">
-            <a class="button button-dark" href="#produtos">Conheça as soluções</a>
+            <a class="button button-dark" href="#produtos">Conheça nossas soluções</a>
             <a class="button button-light" href="#solucoes">Ver engenharia</a>
           </div>
         </div>
@@ -202,7 +203,7 @@ interface ProductCard {
         <div class="footer-main">
           <a class="brand footer-brand" href="#inicio">
             <img src="/ZEROUM.svg" alt="ZERO1BIT" />
-            <span>ZERO1BIT</span>
+          <span class="brand-name">ZERO1BIT</span>
           </a>
           <p>Venture Builder. Criamos, aceleramos e escalamos tecnologias que conectam o setor privado e público ao futuro.</p>
         </div>

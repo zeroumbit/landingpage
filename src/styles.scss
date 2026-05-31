@@ -743,15 +743,59 @@ a {
 
   .topbar {
     top: 10px;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto auto;
+  }
+
+  .brand-name {
+    display: none;
+  }
+
+  .nav-label {
+    display: none;
   }
 
   .nav-phone {
+    padding: 0 8px;
+
+    img {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  .topbar > .button-dark {
+    padding: 0 12px;
+    min-height: 40px;
+    background: transparent;
+    color: #4b5563;
+    border: none;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .product-mockup,
+  .product-arrow {
     display: none;
+  }
+
+  .product-card {
+    grid-template-columns: 1fr;
   }
 
   .hero {
     padding-top: 48px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+
+    .button {
+      width: 100%;
+    }
   }
 
   .hero h1,
@@ -783,14 +827,6 @@ a {
 
   .trusted-strip span {
     min-width: 170px;
-  }
-
-  .product-card {
-    grid-template-columns: 1fr;
-  }
-
-  .product-mockup {
-    max-width: 168px;
   }
 
   .gov-shell,

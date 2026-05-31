@@ -1,8 +1,10 @@
 import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
+import { ContactModal } from '../shared/contact-modal';
 
 @Component({
   selector: 'app-consultoria',
   standalone: true,
+  imports: [ContactModal],
   template: `
     <main class="page consultoria-page">
       <nav class="topbar consultoria-topbar" aria-label="Navegacao principal">
@@ -21,14 +23,13 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
             liderança técnica sob demanda para empresas que precisam decidir certo.
           </p>
           <div class="hero-actions">
-            <a class="button button-dark" href="mailto:zeroumbit@gmail.com">Agendar diagnóstico</a>
-            <a class="button button-light" href="#servicos">Ver serviços</a>
+            <a class="button button-dark" href="#" (click)="$event.preventDefault(); openModal()">Agendar diagnóstico grátis</a>
           </div>
         </div>
         <div class="cto-visual">
           <div class="cto-card cto-card-1">
             <b>Stack</b>
-            <span>Node · Angular · React · Flutter · Go</span>
+            <span>Java · Node · Angular · React · Flutter · PHP</span>
           </div>
           <div class="cto-card cto-card-2">
             <b>Arquitetura</b>
@@ -41,9 +42,41 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
         </div>
       </section>
 
+      <section class="metrics-section">
+        <span class="metrics-badge">Métricas rápidas</span>
+        <div class="metrics-grid">
+          <article>
+            <strong>30+</strong>
+            <span>Produtos liderados tecnicamente para empresas parceiras</span>
+          </article>
+          <article>
+            <strong>0%</strong>
+            <span>Taxa de downtime crítico nas operações</span>
+          </article>
+          <article>
+            <strong>Stacks</strong>
+            <span>Usamos o que for melhor para seu negócio</span>
+          </article>
+          <article>
+            <strong>97%</strong>
+            <span>Clientes que renovam ou expandem o contrato satisfeitos</span>
+          </article>
+          <article>
+            <strong>R$ 2,5M+</strong>
+            <span>Em economia gerada para clientes nos últimos 36 meses</span>
+          </article>
+          <article>
+            <strong>6 semanas</strong>
+            <span>Tempo médio do diagnóstico ao primeiro deploy</span>
+          </article>
+        </div>
+      </section>
+
       <section class="tech-strip" aria-label="Tecnologias e parcerias">
         <span class="tech-strip-label">Tecnologias e parcerias que dominamos:</span>
         <div class="tech-strip-logos">
+          <img src="/java.svg" alt="Java" />
+          <img src="/php-alt.svg" alt="PHP" />
           <img src="/apple-app-store.svg" alt="Apple" />
           <img src="/google-cloud.svg" alt="Google" />
           <img src="/microsoft-azure.svg" alt="Microsoft" />
@@ -55,7 +88,6 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
           <img src="/react.svg" alt="React" />
           <img src="/flutter.svg" alt="Flutter" />
           <img src="/angular-icon.svg" alt="Angular" />
-          <img src="/php-alt.svg" alt="PHP" />
         </div>
       </section>
 
@@ -68,34 +100,103 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
             a stack, estruturamos o time e acompanhamos a execução do zero ao deploy.
           </p>
         </div>
-        <div class="solution-stack">
+          <div class="solution-stack">
           @for (card of visibleSolutions(); track card.title) {
             <article class="solution-card" [class.dark]="card.dark">
+              <div class="solution-icon" [innerHTML]="card.icon"></div>
               <span>{{ card.num }}</span>
               <h3>{{ card.title }}</h3>
               <p>{{ card.text }}</p>
             </article>
           }
-        </div>
+          </div>
         <div class="carousel-indicators">
           <span [class.active]="pageIndex() === 0"></span>
           <span [class.active]="pageIndex() === 1"></span>
         </div>
       </section>
 
-      <section class="section cto-stats">
-        <article>
-          <strong>6+</strong>
-          <span>produtos liderados tecnicamente</span>
-        </article>
-        <article>
-          <strong>0%</strong>
-          <span>taxa de downtime crítico nas operações</span>
-        </article>
-        <article>
-          <strong>Figma</strong>
-          <span>ao deploy em ciclos de 2 semanas</span>
-        </article>
+      <section class="section when-section">
+        <div class="section-heading">
+          <span class="section-kicker">Quando contratar</span>
+          <h2>Um CTO as a Service é<br>pra você se...</h2>
+        </div>
+        <div class="when-grid">
+          <div class="when-card">
+            <div class="when-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <div class="when-card-body">
+              <strong>Arquitetura não escala</strong>
+              <p>Seu produto está em produção, mas a arquitetura atual não suporta o crescimento.</p>
+            </div>
+          </div>
+          <div class="when-card">
+            <div class="when-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <div class="when-card-body">
+              <strong>Due diligence ou investimento</strong>
+              <p>Precisa de liderança técnica para captar investimento ou passar por uma auditoria.</p>
+            </div>
+          </div>
+          <div class="when-card">
+            <div class="when-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <div class="when-card-body">
+              <strong>Faltam processos e governança</strong>
+              <p>Time técnico crescendo, mas sem processos, padrões ou governança definidos.</p>
+            </div>
+          </div>
+          <div class="when-card">
+            <div class="when-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <div class="when-card-body">
+              <strong>Sistemas legados travando a operação</strong>
+              <p>Quer modernizar sistemas legados sem parar a operação e sem riscos.</p>
+            </div>
+          </div>
+          <div class="when-card">
+            <div class="when-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <div class="when-card-body">
+              <strong>Decisões críticas sem direção</strong>
+              <p>Precisa de visão estratégica imparcial para tomar decisões técnicas críticas.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section engagement-section">
+        <div class="section-heading">
+          <span class="section-kicker">Modelos de Engajamento</span>
+          <h2>Como contratamos</h2>
+        </div>
+        <div class="engagement-grid">
+          <article class="engagement-card">
+            <strong>Advisor</strong>
+            <span class="hours">4-8h/semana</span>
+            <p>Ideal para Startups early-stage e validação de ideia.</p>
+          </article>
+          <article class="engagement-card">
+            <strong>Fractional</strong>
+            <span class="hours">16-24h/semana</span>
+            <p>Ideal para Scale-up e estruturação de time.</p>
+          </article>
+          <article class="engagement-card">
+            <strong>Interim</strong>
+            <span class="hours">3-6 meses</span>
+            <p>Ideal para Transição de CTO e projetos críticos.</p>
+          </article>
+          <article class="engagement-card">
+            <strong>Project-based</strong>
+            <span class="hours">Por entrega</span>
+            <p>Ideal para MVP, Migração ou Auditoria.</p>
+          </article>
+        </div>
       </section>
 
       <section class="section" style="text-align:center">
@@ -108,7 +209,7 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
           </p>
           <div class="hero-actions" style="justify-content:center;margin-top:34px">
             <a class="button button-dark" href="https://wa.me/5585997277128" target="_blank" rel="noopener">Falar no WhatsApp</a>
-            <a class="button button-light" href="mailto:zeroumbit@gmail.com">Enviar e-mail</a>
+            <a class="button button-light" href="#" (click)="$event.preventDefault(); openModal()">Enviar mensagem</a>
           </div>
         </div>
       </section>
@@ -122,52 +223,39 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
           <details class="faq-item">
             <summary>Quanto custa o serviço?</summary>
             <div class="faq-answer">
-              <p>O investimento varia conforme o escopo e complexidade do projeto. Oferecemos modelos flexíveis: por hora, pacote fechado ou mensalidade. Agende um diagnóstico gratuito para receber uma proposta personalizada.</p>
+              <p>O investimento varia conforme o escopo e complexidade do projeto. Oferecemos modelos flexíveis: Advisor, Fractional, Interim ou Project-based. Agende um diagnóstico gratuito para receber uma proposta personalizada.</p>
             </div>
           </details>
           <details class="faq-item">
-            <summary>Quanto tempo leva para começar?</summary>
+            <summary>Vocês realizam due diligence técnica para rodadas de investimento?</summary>
             <div class="faq-answer">
-              <p>Após o diagnóstico inicial (1-2 semanas), podemos iniciar a execução imediatamente. Para projetos urgentes, conseguimos alocar recursos em até 48 horas.</p>
+              <p>Sim. Fazemos auditoria completa de arquitetura, código, segurança, dívida técnica e governança. Entregamos um relatório detalhado que investidores usam como parte do processo de due diligence, com riscos mapeados e recomendações priorizadas.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Como funciona a modernização de sistemas legados?</summary>
+            <div class="faq-answer">
+              <p>Começamos com um diagnóstico completo: mapeamento de dependências, análise de risco e definição de estratégia (replatform, refactor ou rebuild). A migração é feita em paralelo à operação existente, sem downtime, com rollback planejado a cada etapa.</p>
             </div>
           </details>
           <details class="faq-item">
             <summary>A equipe é remota ou presencial?</summary>
             <div class="faq-answer">
-              <p>Somos 100% remotos, o que nos permite ser mais ágeis e ter custos menores. Realizamos reuniões semanais de alinhamento e estamos disponíveis via Slack/WhatsApp durante o horário comercial.</p>
+              <p>Somos 100% emotos, o que nos permite ser mais ágeis e ter custos menores. Realizamos reuniões semanais de alinhamento e estamos disponíveis via Slack/WhatsApp durante o horário comercial. Havendo necessidade de atividades presenciais é possível fazer ajustes.</p>
             </div>
           </details>
           <details class="faq-item">
-            <summary>Qual a garantia de qualidade?</summary>
+            <summary>Qual a garantia de qualidade e governança?</summary>
             <div class="faq-answer">
-              <p>💬 Trabalhamos com:</p>
+              <p>Trabalhamos com:</p>
               <ul>
-                <li>Code review sistemático</li>
-                <li>Testes automatizados</li>
-                <li>Métricas de performance</li>
-                <li>Documentação técnica</li>
-                <li>Suporte pós-entrega</li>
+                <li>Code review sistemático em todo pull request</li>
+                <li>Testes automatizados (unitários, integração, e2e)</li>
+                <li>CI/CD com validação de segurança e qualidade</li>
+                <li>Métricas de performance e observabilidade</li>
+                <li>Documentação técnica e de arquitetura</li>
               </ul>
               <p>Nossa taxa de retrabalho é inferior a 5%.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>Vocês trabalham com projetos pequenos?</summary>
-            <div class="faq-answer">
-              <p>Sim! Atendemos desde MVPs iniciais até sistemas complexos em escala. O importante é o alinhamento de expectativas e o potencial de crescimento do projeto.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>Posso contratar apenas consultoria pontual?</summary>
-            <div class="faq-answer">
-              <p>Com certeza. Oferecemos:</p>
-              <ul>
-                <li>Consultoria por hora</li>
-                <li>Code review avulso</li>
-                <li>Auditoria de arquitetura</li>
-                <li>Mentoria técnica</li>
-              </ul>
-              <p>Sem compromisso de longo prazo.</p>
             </div>
           </details>
         </div>
@@ -204,6 +292,8 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
         <small>CNPJ 21.582.343/0001-81 | Uma empresa pescaprecos.com</small>
       </footer>
     </main>
+
+    <app-contact-modal [show]="showModal()" (dismiss)="closeModal()" />
   `,
   styles: [`
     .consultoria-page .consultoria-topbar {
@@ -329,6 +419,193 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
       min-height: 500px;
     }
 
+    .when-section {
+      text-align: center;
+      padding-top: 108px;
+    }
+
+    .when-section .section-heading {
+      margin-bottom: 44px;
+    }
+
+    .when-section h2 {
+      margin-top: 16px;
+      font-size: clamp(36px, 5vw, 64px);
+      line-height: .92;
+      letter-spacing: -0.04em;
+    }
+
+    .when-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      text-align: left;
+    }
+
+    .when-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 28px 24px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: #fff;
+      transition: transform .22s ease, box-shadow .22s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 36px rgba(15,23,42,.08);
+      }
+    }
+
+    .when-card-icon {
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #059669;
+      color: #fff;
+    }
+
+    .when-card-body {
+      strong {
+        display: block;
+        font-size: 16px;
+        line-height: 1.2;
+        margin-bottom: 6px;
+      }
+
+      p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #4b5563;
+      }
+    }
+
+    .solution-icon {
+      margin-bottom: 12px;
+      opacity: .8;
+    }
+
+    .solution-card.dark .solution-icon {
+      color: #fff;
+    }
+
+    .solution-card:not(.dark) .solution-icon {
+      color: #050505;
+    }
+
+    .engagement-section {
+      text-align: center;
+      padding-top: 108px;
+    }
+
+    .engagement-section .section-heading {
+      margin-bottom: 44px;
+    }
+
+    .engagement-section h2 {
+      margin-top: 16px;
+      font-size: clamp(36px, 5vw, 64px);
+      line-height: .92;
+      letter-spacing: -0.04em;
+    }
+
+    .engagement-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .engagement-card {
+      padding: 32px 24px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: #fff;
+      text-align: left;
+      transition: transform .22s ease, box-shadow .22s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 50px rgba(15,23,42,.1);
+      }
+
+      strong {
+        display: block;
+        font-size: 22px;
+        line-height: 1;
+        letter-spacing: -.03em;
+      }
+
+      .hours {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 4px 12px;
+        border-radius: 999px;
+        background: #f3f4f6;
+        font-size: 13px;
+        font-weight: 720;
+        color: #4b5563;
+      }
+
+      p {
+        margin-top: 16px;
+        font-size: 15px;
+        line-height: 1.5;
+        color: #4b5563;
+      }
+    }
+
+    .metrics-section {
+      margin-top: 24px;
+    }
+
+    .metrics-badge {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: #f3f4f6;
+      font-size: 12px;
+      font-weight: 750;
+      color: #4b5563;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+    }
+
+    .metrics-grid article {
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    .metrics-grid strong {
+      display: block;
+      font-size: 32px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .metrics-grid span {
+      display: block;
+      max-width: 200px;
+      margin-top: 10px;
+      font-size: 14px;
+      line-height: 1.4;
+      color: #4b5563;
+    }
+
     .cto-card {
       padding: 24px 28px;
       border-radius: 24px;
@@ -362,36 +639,6 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
     }
     .cto-card-3 {
       animation: rise .6s .3s both;
-    }
-
-    .cto-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      padding-top: 118px;
-
-      article {
-        min-height: 150px;
-        padding: 24px;
-        border: 1px solid var(--line);
-        border-radius: 24px;
-        background: #fff;
-      }
-
-      strong {
-        display: block;
-        font-size: 52px;
-        line-height: 1;
-        letter-spacing: -0.04em;
-      }
-
-      span {
-        display: block;
-        max-width: 260px;
-        margin-top: 18px;
-        color: #4b5563;
-        line-height: 1.45;
-      }
     }
 
     .faq-section {
@@ -487,21 +734,69 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
       .cto-stats {
         grid-template-columns: repeat(2, 1fr);
       }
+      .engagement-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .when-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .metrics-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
     @media (max-width: 720px) {
-      .cto-stats {
+      .engagement-grid {
+        grid-template-columns: 1fr;
+      }
+      .when-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        article {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          padding: 14px 18px;
+
+          strong {
+            font-size: 28px;
+            flex-shrink: 0;
+          }
+
+          span {
+            margin-top: 0;
+          }
+        }
+      }
+      .when-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .when-grid {
+        grid-template-columns: 1fr;
+      }
+      .metrics-grid {
         grid-template-columns: 1fr;
       }
     }
   `]
 })
 export class ConsultoriaPage implements OnInit, OnDestroy {
+  protected readonly showModal = signal(false);
+
+  protected openModal() { this.showModal.set(true); document.body.style.overflow = 'hidden'; }
+  protected closeModal() { this.showModal.set(false); document.body.style.overflow = ''; }
+
   protected readonly solutions = [
-    { num: '01', title: 'Diagnóstico técnico', text: 'Mapeamos o estado atual, riscos, divida técnica e oportunidades de melhoria no seu produto ou operação.', dark: false },
-    { num: '02', title: 'Arquitetura & Stack', text: 'Definimos a arquitetura ideal, escolha de tecnologias, provedores de nuvem e padrões de desenvolvimento.', dark: true },
-    { num: '03', title: 'Liderança técnica', text: 'Atuamos como CTO interino ou consultor para estruturar squads, processos e entregas com qualidade.', dark: false },
-    { num: '04', title: 'Code Review & Auditoria', text: 'Revisamos código, segurança, performance e boas práticas para garantir que sua base técnica seja sólida.', dark: true },
+    { num: '01', title: 'Estratégia e Planejamento', text: 'Mapeamento de objetivos, Definição de Roadmap Tecnológico, Arquitetura de Soluções (Escalável/Microservices) e Validação de Produto.', dark: false, icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>' },
+    { num: '02', title: 'Execução e Operação', text: 'Liderança e Estruturação de Times (Squads), Engenharia de Software e Qualidade (CI/CD, Testes) e Gestão de Infraestrutura e Cloud.', dark: true, icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>' },
+    { num: '03', title: 'Governança e Riscos', text: 'Segurança e Conformidade (LGPD/DevSecOps), Gestão de Custos e ROI Tecnológico e Due Diligence Técnica (Auditoria).', dark: false, icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>' },
+    { num: '04', title: 'Inovação e Upgrade', text: 'Modernização de Legado, Integração de Tecnologias Emergentes (IA/ML) e Cultura de Inovação e Dados.', dark: true, icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>' },
   ];
 
   protected readonly pageIndex = signal(0);

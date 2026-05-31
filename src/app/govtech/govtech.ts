@@ -1,4 +1,4 @@
-import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-govtech',
@@ -15,13 +15,13 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
       <section class="hero gov-hero" id="inicio">
         <div class="hero-copy">
           <div class="eyebrow">GovTech</div>
-          <h1>Transformação digital para<br>gestão pública.</h1>
+          <h1>Nova gestão digital para o<br><span style="white-space:nowrap">poder público.</span></h1>
           <p>
             Plataformas auditáveis e seguras para reduzir custos, digitalizar processos
             e organizar rotinas de prefeituras, secretarias e operações públicas.
           </p>
           <div class="hero-actions">
-            <a class="button button-dark" href="mailto:zeroumbit@gmail.com">Solicitar proposta</a>
+            <a class="button button-dark" href="mailto:zeroumbit@gmail.com">Solicitar proposta grátis</a>
             <a class="button button-light" href="#solucoes">Ver soluções</a>
           </div>
         </div>
@@ -44,6 +44,8 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
       <section class="tech-strip" aria-label="Tecnologias e parceiros">
         <span class="tech-strip-label">Tecnologias e parceiros que utilizamos:</span>
         <div class="tech-strip-logos">
+          <img src="/java.svg" alt="Java" />
+          <img src="/php-alt.svg" alt="PHP" />
           <img src="/aws.svg" alt="AWS" />
           <img src="/google-cloud.svg" alt="Google Cloud" />
           <img src="/microsoft-azure.svg" alt="Microsoft Azure" />
@@ -53,27 +55,25 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
           <img src="/react.svg" alt="React" />
           <img src="/angular-icon.svg" alt="Angular" />
           <img src="/flutter.svg" alt="Flutter" />
-          <img src="/php-alt.svg" alt="PHP" />
         </div>
       </section>
 
       <section class="section gov-solutions-section" id="solucoes">
         <div class="section-heading">
           <span class="section-kicker">Soluções públicas</span>
-          <h2>Plataformas inteligentes para<br>a gestão municipal.</h2>
+          <h2>Plataformas inteligentes para a<br>gestão municipal.</h2>
         </div>
         <div class="gov-solutions-grid">
-          @for (card of visibleSolutions(); track card.title) {
-            <article class="solution-card" [class.dark]="card.dark">
+          @for (card of solutions; track card.title) {
+            <a class="solution-card" [class.dark]="card.dark" [href]="card.href || '#'" [target]="card.href ? '_blank' : null" [rel]="card.href ? 'noopener' : null">
               <span>{{ card.num }}</span>
               <h3>{{ card.title }}</h3>
               <p>{{ card.text }}</p>
-            </article>
+              @if (card.href) {
+                <b class="solution-arrow" aria-hidden="true">&nearr;</b>
+              }
+            </a>
           }
-        </div>
-        <div class="carousel-indicators">
-          <span [class.active]="pageIndex() === 0"></span>
-          <span [class.active]="pageIndex() === 1"></span>
         </div>
       </section>
 
@@ -221,6 +221,7 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
       gap: 14px;
       align-content: center;
       min-height: 500px;
+      justify-self: end;
     }
 
     .gov-hero-card {
@@ -293,43 +294,95 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
 
     .gov-solutions-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(4, 1fr);
       gap: 14px;
-      min-height: 460px;
       align-content: stretch;
     }
 
     .gov-solutions-grid .solution-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
       height: 100%;
-      min-height: 460px;
+      min-height: 320px;
+      padding: 28px;
+      padding-right: 82px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: #f7f8f9;
+      cursor: pointer;
       animation: fadeSlideIn .5s ease both;
+      transition: transform .22s ease, background .22s ease, border-color .22s ease;
+
+      span:first-child {
+        color: #6b7280;
+        font-weight: 850;
+      }
+
+      h3 {
+        margin: 42px 0 14px;
+        font-size: clamp(20px, 4vw, 36px);
+        line-height: .98;
+        letter-spacing: -0.035em;
+      }
+
+      p {
+        color: #4b5563;
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      &:hover {
+        transform: translateY(-6px);
+        border-color: rgba(24, 199, 223, .65);
+        background: #17c8dc;
+
+        p, span:first-child, h3 {
+          color: #050505;
+        }
+
+        .solution-arrow {
+          opacity: 1;
+          transform: translate(0, 0);
+        }
+      }
+
+      &.dark {
+        color: #fff;
+        background: #050505;
+
+        p, span:first-child {
+          color: rgba(255,255,255,.72);
+        }
+
+        &:hover {
+          border-color: rgba(24, 199, 223, .65);
+          background: #17c8dc;
+        }
+      }
+    }
+
+    .solution-arrow {
+      position: absolute;
+      right: 22px;
+      bottom: 22px;
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      color: #050505;
+      background: #fff;
+      box-shadow: 0 16px 34px rgba(5,5,5,.16);
+      opacity: 0;
+      transform: translate(10px, 10px);
+      transition: opacity .2s ease, transform .2s ease;
     }
 
     .gov-solutions-grid .solution-card:nth-child(1) { animation-delay: 0s; }
-    .gov-solutions-grid .solution-card:nth-child(2) { animation-delay: .12s; }
-
-    .carousel-indicators {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      margin-top: 28px;
-      height: 8px;
-    }
-
-    .carousel-indicators span {
-      display: block;
-      width: 10px;
-      height: 8px;
-      border-radius: 10px;
-      background: #e6e8eb;
-      transition: all .3s ease;
-    }
-
-    .carousel-indicators span.active {
-      width: 32px;
-      background: #050505;
-    }
+    .gov-solutions-grid .solution-card:nth-child(2) { animation-delay: .08s; }
+    .gov-solutions-grid .solution-card:nth-child(3) { animation-delay: .16s; }
+    .gov-solutions-grid .solution-card:nth-child(4) { animation-delay: .24s; }
 
     @keyframes fadeSlideIn {
       from {
@@ -471,40 +524,30 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
       .gov-stats {
         grid-template-columns: repeat(2, 1fr);
       }
+      .gov-solutions-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 720px) {
       .gov-stats {
         grid-template-columns: 1fr;
       }
+      .gov-solutions-grid {
+        grid-template-columns: 1fr;
+      }
+      .gov-solutions-grid .solution-card {
+        min-height: 240px;
+      }
     }
   `]
 })
-export class GovtechPage implements OnInit, OnDestroy {
+export class GovtechPage {
   protected readonly solutions = [
-    { num: '01', title: 'Fluxoo DOC', text: 'Gestão documental com rastreio, backup, auditoria e controle dos processos administrativos da prefeitura.', dark: false },
-    { num: '02', title: 'Fluxoo RH', text: 'Controle de férias, atestados, funcionários e rotinas de recursos humanos para o setor público.', dark: true },
-    { num: '03', title: 'Sites Institucionais', text: 'Sites para secretarias e prefeituras, preparados para comunicação pública com acessibilidade e transparência.', dark: false },
-    { num: '04', title: 'Fluxoo Legisla', text: 'Gestão de câmaras de vereadores com controle de sessões, proposições e atos legislativos.', dark: true },
+    { num: '01', title: 'Fluxoo DOC', text: 'Gestão documental com rastreio, backup, auditoria e controle dos processos administrativos da prefeitura.', dark: false, href: 'https://doc.fluxoo.com.br/login' },
+    { num: '02', title: 'Fluxoo RH', text: 'Controle de férias, atestados, funcionários e rotinas de recursos humanos para o setor público.', dark: true, href: '#' },
+    { num: '03', title: 'Fluxoo Legisla', text: 'Gestão de câmaras de vereadores com controle de sessões, proposições e atos legislativos.', dark: true, href: '#' },
+    { num: '04', title: 'Sites Institucionais', text: 'Sites para secretarias e prefeituras, preparados para comunicação pública com acessibilidade e transparência.', dark: false },
   ];
 
-  protected readonly pageIndex = signal(0);
-  private intervalId: ReturnType<typeof setInterval> | null = null;
-
-  protected readonly visibleSolutions = computed(() => {
-    const start = this.pageIndex() * 2;
-    return this.solutions.slice(start, start + 2);
-  });
-
-  ngOnInit() {
-    this.intervalId = setInterval(() => {
-      this.pageIndex.update(i => (i + 1) % 2);
-    }, 7000);
-  }
-
-  ngOnDestroy() {
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
-    }
-  }
 }
