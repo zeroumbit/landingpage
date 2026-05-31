@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { ContactModal } from '../shared/contact-modal';
 
 interface ProductCard {
   type: string;
@@ -12,6 +13,7 @@ interface ProductCard {
 @Component({
   selector: 'app-home',
   standalone: true,
+  imports: [ContactModal],
   template: `
     <main class="page">
       <nav class="topbar" aria-label="Navegacao principal">
@@ -31,7 +33,7 @@ interface ProductCard {
           <img src="/icon-whatsapp.svg" alt="WhatsApp" width="20" height="20" />
           <span class="nav-label">(85) 9 9727-7128</span>
         </a>
-        <a class="button button-dark" href="mailto:zeroumbit@gmail.com">
+        <a class="button button-dark" href="#" (click)="$event.preventDefault(); openModal()">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="4" width="20" height="16" rx="2"/>
             <path d="m22 7-10 7L2 7"/>
@@ -110,13 +112,13 @@ interface ProductCard {
             <span>01</span>
             <h3>Desenvolvimento de softwares & Apps</h3>
             <p>De portais governamentais robustos a Super Apps, com tecnologia, segurança e escalabilidade.</p>
-            <a href="mailto:zeroumbit@gmail.com">Orçar projeto</a>
+            <a href="#" (click)="$event.preventDefault(); openModal()">Orçar projeto</a>
           </article>
           <article class="solution-card dark">
             <span>02</span>
             <h3>Consultoria & CTO as a Service</h3>
             <p>Estratégia técnica, arquitetura, decisão de stack e acompanhamento para reduzir desperdício de tempo e capital.</p>
-            <a href="/consultoria" target="_blank" rel="noopener">Falar com especialista</a>
+            <a href="#" (click)="$event.preventDefault(); openModal()">Falar com especialista</a>
           </article>
         </div>
       </section>
@@ -171,6 +173,7 @@ interface ProductCard {
               </a>
             }
           </div>
+          <a class="button button-dark" href="/govtech" target="_blank" rel="noopener" style="justify-self:start;margin-top:10px">Saiba mais &rarr;</a>
         </div>
       </section>
 
@@ -196,7 +199,7 @@ interface ProductCard {
           <span class="section-kicker">Parcerias</span>
           <h2>Seja nosso representante em sua cidade com ZERO investimento.</h2>
         </div>
-        <a class="button button-dark" href="https://wa.me/5585997277128" target="_blank" rel="noopener">Começar conversa</a>
+        <a class="button button-dark" href="/representante" target="_blank" rel="noopener">Quero ser representante</a>
       </section>
 
       <footer class="footer" id="contato">
@@ -219,9 +222,9 @@ interface ProductCard {
         <div>
           <h4>Empresa</h4>
           <a href="#solucoes">Desenvolvimento</a>
-          <a href="#solucoes">Consultoria</a>
-          <a href="/govtech">GovTech</a>
-          <a href="#contato">Seja parceiro</a>
+          <a href="/consultoria" target="_blank" rel="noopener">Consultoria</a>
+          <a href="/govtech" target="_blank" rel="noopener">GovTech</a>
+          <a href="/representante" target="_blank" rel="noopener">Seja parceiro</a>
         </div>
 
         <div>
@@ -234,9 +237,16 @@ interface ProductCard {
         <small>CNPJ 21.582.343/0001-81 | Uma empresa pescaprecos.com</small>
       </footer>
     </main>
+
+    <app-contact-modal [show]="showModal()" (dismiss)="closeModal()" />
   `,
 })
 export class HomePage {
+  protected readonly showModal = signal(false);
+
+  protected openModal() { this.showModal.set(true); document.body.style.overflow = 'hidden'; }
+  protected closeModal() { this.showModal.set(false); document.body.style.overflow = ''; }
+
   protected readonly heroLogos = [
     { name: 'temrango', src: '/temrango.png', href: 'https://lojista.temrango.com.br/' },
     { name: 'Fluxoo DOC', src: '/fluxoo-doc.png', href: 'https://doc.fluxoo.com.br/login' },

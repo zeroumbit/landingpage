@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { ContactModal } from '../shared/contact-modal';
 
 @Component({
   selector: 'app-govtech',
   standalone: true,
+  imports: [ContactModal],
   template: `
     <main class="page govtech-page">
       <nav class="topbar govtech-topbar" aria-label="Navegacao principal">
@@ -21,7 +23,7 @@ import { Component } from '@angular/core';
             e organizar rotinas de prefeituras, secretarias e operações públicas.
           </p>
           <div class="hero-actions">
-            <a class="button button-dark" href="mailto:zeroumbit@gmail.com">Solicitar proposta grátis</a>
+            <a class="button button-dark" href="#" (click)="$event.preventDefault(); openModal()">Solicitar proposta grátis</a>
             <a class="button button-light" href="#solucoes">Ver soluções</a>
           </div>
         </div>
@@ -101,7 +103,7 @@ import { Component } from '@angular/core';
           </p>
           <div class="hero-actions" style="justify-content:center;margin-top:34px">
             <a class="button button-dark" href="https://wa.me/5585997277128" target="_blank" rel="noopener">Falar no WhatsApp</a>
-            <a class="button button-light" href="mailto:zeroumbit@gmail.com">Enviar e-mail</a>
+            <a class="button button-light" href="#" (click)="$event.preventDefault(); openModal()">Enviar mensagem</a>
           </div>
         </div>
       </section>
@@ -176,9 +178,9 @@ import { Component } from '@angular/core';
         <div>
           <h4>Empresa</h4>
           <a href="/#solucoes">Desenvolvimento</a>
-          <a href="/consultoria">Consultoria</a>
-          <a href="/govtech">GovTech</a>
-          <a href="/#contato">Seja parceiro</a>
+          <a href="/consultoria" target="_blank" rel="noopener">Consultoria</a>
+          <a href="/govtech" target="_blank" rel="noopener">GovTech</a>
+          <a href="/representante" target="_blank" rel="noopener">Seja parceiro</a>
         </div>
         <div>
           <h4>Contato</h4>
@@ -189,6 +191,8 @@ import { Component } from '@angular/core';
         <small>CNPJ 21.582.343/0001-81 | Uma empresa pescaprecos.com</small>
       </footer>
     </main>
+
+    <app-contact-modal [show]="showModal()" (dismiss)="closeModal()" />
   `,
   styles: [`
     .govtech-page .govtech-topbar {
@@ -543,11 +547,16 @@ import { Component } from '@angular/core';
   `]
 })
 export class GovtechPage {
+  protected readonly showModal = signal(false);
+
+  protected openModal() { this.showModal.set(true); document.body.style.overflow = 'hidden'; }
+  protected closeModal() { this.showModal.set(false); document.body.style.overflow = ''; }
+
   protected readonly solutions = [
     { num: '01', title: 'Fluxoo DOC', text: 'Gestão documental com rastreio, backup, auditoria e controle dos processos administrativos da prefeitura.', dark: false, href: 'https://doc.fluxoo.com.br/login' },
     { num: '02', title: 'Fluxoo RH', text: 'Controle de férias, atestados, funcionários e rotinas de recursos humanos para o setor público.', dark: true, href: '#' },
-    { num: '03', title: 'Fluxoo Legisla', text: 'Gestão de câmaras de vereadores com controle de sessões, proposições e atos legislativos.', dark: true, href: '#' },
-    { num: '04', title: 'Sites Institucionais', text: 'Sites para secretarias e prefeituras, preparados para comunicação pública com acessibilidade e transparência.', dark: false },
+    { num: '03', title: 'Fluxoo Legisla', text: 'Gestão de câmaras de vereadores com controle de sessões, proposições e atos legislativos.', dark: false, href: '#' },
+    { num: '04', title: 'Sites Institucionais', text: 'Sites para secretarias e prefeituras, preparados para comunicação pública com acessibilidade e transparência.', dark: true },
   ];
 
 }

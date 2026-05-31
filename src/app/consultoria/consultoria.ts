@@ -279,9 +279,9 @@ import { ContactModal } from '../shared/contact-modal';
         <div>
           <h4>Empresa</h4>
           <a href="/#solucoes">Desenvolvimento</a>
-          <a href="/consultoria" target="_blank">Consultoria</a>
-          <a href="/govtech">GovTech</a>
-          <a href="/#contato">Seja parceiro</a>
+          <a href="/consultoria" target="_blank" rel="noopener">Consultoria</a>
+          <a href="/govtech" target="_blank" rel="noopener">GovTech</a>
+          <a href="/representante" target="_blank" rel="noopener">Seja parceiro</a>
         </div>
         <div>
           <h4>Contato</h4>
