@@ -86,7 +86,7 @@ interface ProductCard {
         </article>
         <article>
           <strong>0%</strong>
-          <span>comissão para lojistas no temrango.com</span>
+          <span>Lojistas não pagam comissão no temrango.com</span>
         </article>
         <article>
           <strong>LGPD</strong>
@@ -135,7 +135,7 @@ interface ProductCard {
                 <p>{{ product.description }}</p>
               </div>
 
-              <img class="product-mockup" [src]="product.mockup" [alt]="product.name" width="360" height="800" />
+              <img class="product-mockup" [src]="product.mockup" [alt]="product.name" width="216" height="480" />
               <span class="product-arrow" aria-hidden="true">&nearr;</span>
             </a>
           }
@@ -219,7 +219,7 @@ interface ProductCard {
           <h4>Empresa</h4>
           <a href="#solucoes">Desenvolvimento</a>
           <a href="#solucoes">Consultoria</a>
-          <a href="#govtech">GovTech</a>
+          <a href="/govtech">GovTech</a>
           <a href="#contato">Seja parceiro</a>
         </div>
 
@@ -282,7 +282,7 @@ export class HomePage {
   protected readonly govProducts = [
     { label: 'Documentos', title: 'Fluxoo DOC', text: 'Gestão documental com rastreio, backup, auditoria e controle dos processos.', href: 'https://doc.fluxoo.com.br/login' },
     { label: 'RH', title: 'Fluxoo RH', text: 'Controle de férias, atestados, funcionários e rotinas de recursos humanos.', href: '#' },
-    { label: 'Portais', title: 'Sites institucionais', text: 'Sites para secretarias e prefeituras, preparados para comunicação pública.', href: '#' },
+    { label: 'Portais', title: 'Sites institucionais', text: 'Sites para secretarias e prefeituras, preparados para comunicação pública.', href: '/govtech' },
     { label: 'Legisla', title: 'Fluxoo Legisla', text: 'Gestão de câmaras de vereadores com controle de\u00A0sessões, proposições e atos legislativos.', href: '#' },
   ];
 

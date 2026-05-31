@@ -1,74 +1,68 @@
 import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
-  selector: 'app-consultoria',
+  selector: 'app-govtech',
   standalone: true,
   template: `
-    <main class="page consultoria-page">
-      <nav class="topbar consultoria-topbar" aria-label="Navegacao principal">
+    <main class="page govtech-page">
+      <nav class="topbar govtech-topbar" aria-label="Navegacao principal">
         <a class="brand" href="/" aria-label="ZERO1BIT">
           <img src="/ZEROUM.svg" alt="ZERO1BIT" />
           <span>ZERO1BIT</span>
         </a>
       </nav>
 
-      <section class="hero cto-hero" id="inicio">
+      <section class="hero gov-hero" id="inicio">
         <div class="hero-copy">
-          <div class="eyebrow">Consultoria & CTO as a Service</div>
-          <h1>Estratégia técnica para<br>acelerar seu negócio.</h1>
+          <div class="eyebrow">GovTech</div>
+          <h1>Transformação digital para<br>gestão pública.</h1>
           <p>
-            Sem desperdício de tempo e capital. Arquitetura, stack, produto e
-            liderança técnica sob demanda para empresas que precisam decidir certo.
+            Plataformas auditáveis e seguras para reduzir custos, digitalizar processos
+            e organizar rotinas de prefeituras, secretarias e operações públicas.
           </p>
           <div class="hero-actions">
-            <a class="button button-dark" href="mailto:zeroumbit@gmail.com">Agendar diagnóstico</a>
-            <a class="button button-light" href="#servicos">Ver serviços</a>
+            <a class="button button-dark" href="mailto:zeroumbit@gmail.com">Solicitar proposta</a>
+            <a class="button button-light" href="#solucoes">Ver soluções</a>
           </div>
         </div>
-        <div class="cto-visual">
-          <div class="cto-card cto-card-1">
-            <b>Stack</b>
-            <span>Node · Angular · React · Flutter · Go</span>
+        <div class="gov-hero-visual">
+          <div class="gov-hero-card gov-hero-card-1">
+            <b>Documentos</b>
+            <span>Gestão documental com rastreio, backup e auditoria</span>
           </div>
-          <div class="cto-card cto-card-2">
-            <b>Arquitetura</b>
-            <span>Microsserviços · Event-driven · Serverless</span>
+          <div class="gov-hero-card gov-hero-card-2">
+            <b>RH</b>
+            <span>Controle de férias, atestados e rotinas de RH</span>
           </div>
-          <div class="cto-card cto-card-3">
-            <b>Produto</b>
-            <span>MVP · Roadmap · OKRs · Métricas</span>
+          <div class="gov-hero-card gov-hero-card-3">
+            <b>Legislação</b>
+            <span>Gestão de sessões, proposições e atos legislativos</span>
           </div>
         </div>
       </section>
 
-      <section class="tech-strip" aria-label="Tecnologias e parcerias">
-        <span class="tech-strip-label">Tecnologias e parcerias que dominamos:</span>
+      <section class="tech-strip" aria-label="Tecnologias e parceiros">
+        <span class="tech-strip-label">Tecnologias e parceiros que utilizamos:</span>
         <div class="tech-strip-logos">
-          <img src="/apple-app-store.svg" alt="Apple" />
-          <img src="/google-cloud.svg" alt="Google" />
-          <img src="/microsoft-azure.svg" alt="Microsoft" />
           <img src="/aws.svg" alt="AWS" />
+          <img src="/google-cloud.svg" alt="Google Cloud" />
+          <img src="/microsoft-azure.svg" alt="Microsoft Azure" />
           <img src="/github-icon.svg" alt="GitHub" />
-          <img src="/vercel.svg" alt="Vercel" />
           <img src="/cloudflare-icon.svg" alt="Cloudflare" />
           <img src="/nodejs-icon-alt.svg" alt="Node.js" />
           <img src="/react.svg" alt="React" />
-          <img src="/flutter.svg" alt="Flutter" />
           <img src="/angular-icon.svg" alt="Angular" />
+          <img src="/flutter.svg" alt="Flutter" />
           <img src="/php-alt.svg" alt="PHP" />
         </div>
       </section>
 
-      <section class="section split-section" id="servicos">
-        <div class="section-copy">
-          <span class="section-kicker">O que fazemos</span>
-          <h2>CTO sob demanda para<br>quem precisa entregar.</h2>
-          <p>
-            Liderança técnica sem custo fixo. Desenhamos a arquitetura, definimos
-            a stack, estruturamos o time e acompanhamos a execução do zero ao deploy.
-          </p>
+      <section class="section gov-solutions-section" id="solucoes">
+        <div class="section-heading">
+          <span class="section-kicker">Soluções públicas</span>
+          <h2>Plataformas inteligentes para<br>a gestão municipal.</h2>
         </div>
-        <div class="solution-stack">
+        <div class="gov-solutions-grid">
           @for (card of visibleSolutions(); track card.title) {
             <article class="solution-card" [class.dark]="card.dark">
               <span>{{ card.num }}</span>
@@ -83,28 +77,27 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
         </div>
       </section>
 
-      <section class="section cto-stats">
+      <section class="section gov-stats" id="resultados">
         <article>
-          <strong>6+</strong>
-          <span>produtos liderados tecnicamente</span>
+          <strong>100%</strong>
+          <span>adequação à LGPD e LAI</span>
         </article>
         <article>
-          <strong>0%</strong>
-          <span>taxa de downtime crítico nas operações</span>
+          <strong>0</strong>
+          <span>incidentes de segurança em plataformas públicas</span>
         </article>
         <article>
-          <strong>Figma</strong>
-          <span>ao deploy em ciclos de 2 semanas</span>
+          <strong>Paperless</strong>
+          <span>redução de custos com digitalização de processos</span>
         </article>
       </section>
 
       <section class="section" style="text-align:center">
         <div style="max-width:680px;margin:0 auto">
           <span class="section-kicker">Próximo passo</span>
-          <h2 style="margin:18px 0 0;font-size:clamp(42px,6vw,78px);line-height:.92;letter-spacing:-0.045em">Vamos diagnosticar seu projeto?</h2>
+          <h2 style="margin:18px 0 0;font-size:clamp(42px,6vw,78px);line-height:.92;letter-spacing:-0.045em">Vamos transformar sua gestão pública?</h2>
           <p style="color:#4b5563;font-size:18px;line-height:1.6;margin-top:22px">
-            Uma conversa sem compromisso para entender seu momento e mostrar
-            como podemos acelerar sua entrega técnica.
+          Agende uma conversa sem compromisso para entender as necessidades do seu município e apresentar nossas soluções.
           </p>
           <div class="hero-actions" style="justify-content:center;margin-top:34px">
             <a class="button button-dark" href="https://wa.me/5585997277128" target="_blank" rel="noopener">Falar no WhatsApp</a>
@@ -120,54 +113,46 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
         </div>
         <div class="faq-list">
           <details class="faq-item">
-            <summary>Quanto custa o serviço?</summary>
+            <summary>Quanto custa implantar uma solução pública?</summary>
             <div class="faq-answer">
-              <p>O investimento varia conforme o escopo e complexidade do projeto. Oferecemos modelos flexíveis: por hora, pacote fechado ou mensalidade. Agende um diagnóstico gratuito para receber uma proposta personalizada.</p>
+              <p>O investimento varia conforme o porte do município e a complexidade dos módulos contratados. Oferecemos modelos por assinatura mensal com implantação acelerada. Solicite uma proposta personalizada.</p>
             </div>
           </details>
           <details class="faq-item">
-            <summary>Quanto tempo leva para começar?</summary>
+            <summary>As plataformas são seguras e auditáveis?</summary>
             <div class="faq-answer">
-              <p>Após o diagnóstico inicial (1-2 semanas), podemos iniciar a execução imediatamente. Para projetos urgentes, conseguimos alocar recursos em até 48 horas.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>A equipe é remota ou presencial?</summary>
-            <div class="faq-answer">
-              <p>Somos 100% remotos, o que nos permite ser mais ágeis e ter custos menores. Realizamos reuniões semanais de alinhamento e estamos disponíveis via Slack/WhatsApp durante o horário comercial.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>Qual a garantia de qualidade?</summary>
-            <div class="faq-answer">
-              <p>💬 Trabalhamos com:</p>
+              <p>Sim. Todas as nossas soluções são desenvolvidas com:</p>
               <ul>
-                <li>Code review sistemático</li>
-                <li>Testes automatizados</li>
-                <li>Métricas de performance</li>
-                <li>Documentação técnica</li>
-                <li>Suporte pós-entrega</li>
+                <li>Aderência à LGPD e LAI</li>
+                <li>Criptografia de dados em trânsito e em repouso</li>
+                <li>Registro de auditoria de todas as operações</li>
+                <li>Backup automatizado na nuvem</li>
+                <li>Controle de acesso por perfil</li>
               </ul>
-              <p>Nossa taxa de retrabalho é inferior a 5%.</p>
             </div>
           </details>
           <details class="faq-item">
-            <summary>Vocês trabalham com projetos pequenos?</summary>
+            <summary>Quanto tempo leva para implantar?</summary>
             <div class="faq-answer">
-              <p>Sim! Atendemos desde MVPs iniciais até sistemas complexos em escala. O importante é o alinhamento de expectativas e o potencial de crescimento do projeto.</p>
+              <p>A implantação inicial pode ser feita em 2 a 4 semanas, dependendo da quantidade de módulos e da preparação dos dados. Oferecemos treinamento para a equipe da prefeitura.</p>
             </div>
           </details>
           <details class="faq-item">
-            <summary>Posso contratar apenas consultoria pontual?</summary>
+            <summary>Precisamos de infraestrutura própria?</summary>
             <div class="faq-answer">
-              <p>Com certeza. Oferecemos:</p>
-              <ul>
-                <li>Consultoria por hora</li>
-                <li>Code review avulso</li>
-                <li>Auditoria de arquitetura</li>
-                <li>Mentoria técnica</li>
-              </ul>
-              <p>Sem compromisso de longo prazo.</p>
+              <p>Não. Todas as soluções são hospedadas em nuvem com alta disponibilidade. Basta um navegador web e acesso à internet para começar a usar.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>As soluções funcionam em cidades pequenas?</summary>
+            <div class="faq-answer">
+              <p>Sim! Nossas plataformas são escaláveis e atendem desde pequenos municípios até grandes secretarias. O custo é proporcional ao porte da cidade.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Oferecem suporte e treinamento?</summary>
+            <div class="faq-answer">
+              <p>Sim. Oferecemos suporte técnico durante horário comercial, treinamento inicial para a equipe e documentação completa. Para municípios que contratam pacotes completos, disponibilizamos canal prioritário.</p>
             </div>
           </details>
         </div>
@@ -191,7 +176,7 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
         <div>
           <h4>Empresa</h4>
           <a href="/#solucoes">Desenvolvimento</a>
-          <a href="/consultoria" target="_blank">Consultoria</a>
+          <a href="/consultoria">Consultoria</a>
           <a href="/govtech">GovTech</a>
           <a href="/#contato">Seja parceiro</a>
         </div>
@@ -206,7 +191,7 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
     </main>
   `,
   styles: [`
-    .consultoria-page .consultoria-topbar {
+    .govtech-page .govtech-topbar {
       animation: none;
       position: static;
       display: flex;
@@ -217,37 +202,118 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
       padding: 10px 0 20px;
     }
 
-    .cto-hero {
+    .gov-hero {
       grid-template-columns: 1fr 1fr;
       text-align: left;
     }
 
-    .cto-hero .hero-copy {
+    .gov-hero .hero-copy {
       justify-items: start;
     }
 
-    .cto-hero h1 {
+    .gov-hero h1 {
       text-align: left;
       margin-left: 0;
     }
 
-    .split-section .solution-stack {
+    .gov-hero-visual {
+      display: grid;
+      gap: 14px;
+      align-content: center;
+      min-height: 500px;
+    }
+
+    .gov-hero-card {
+      padding: 24px 28px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: #fff;
+      transition: transform .22s ease, box-shadow .22s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 50px rgba(15, 23, 42, .1);
+      }
+
+      b {
+        display: block;
+        font-size: 20px;
+        margin-bottom: 8px;
+      }
+
+      span {
+        color: #4b5563;
+        font-size: 15px;
+        line-height: 1.5;
+      }
+    }
+
+    .gov-hero-card-1 { animation: rise .6s .1s both; }
+    .gov-hero-card-2 { animation: rise .6s .2s both; }
+    .gov-hero-card-3 { animation: rise .6s .3s both; }
+
+    .gov-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      padding-top: 118px;
+
+      article {
+        min-height: 150px;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: #fff;
+      }
+
+      strong {
+        display: block;
+        font-size: 52px;
+        line-height: 1;
+        letter-spacing: -0.04em;
+      }
+
+      span {
+        display: block;
+        max-width: 260px;
+        margin-top: 18px;
+        color: #4b5563;
+        line-height: 1.45;
+      }
+    }
+
+    .gov-solutions-section .section-heading {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .gov-solutions-section .section-heading h2 {
+      margin-top: 16px;
+    }
+
+    .gov-solutions-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
-      align-self: start;
       min-height: 460px;
       align-content: stretch;
-      min-width: 0;
     }
 
+    .gov-solutions-grid .solution-card {
+      height: 100%;
+      min-height: 460px;
+      animation: fadeSlideIn .5s ease both;
+    }
+
+    .gov-solutions-grid .solution-card:nth-child(1) { animation-delay: 0s; }
+    .gov-solutions-grid .solution-card:nth-child(2) { animation-delay: .12s; }
+
     .carousel-indicators {
-      grid-column: 2;
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 10px;
-      margin-top: -44px;
+      margin-top: 28px;
       height: 8px;
     }
 
@@ -264,16 +330,6 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
       width: 32px;
       background: #050505;
     }
-
-    .split-section .solution-card {
-      height: 100%;
-      min-height: 460px;
-      min-width: 0;
-      animation: fadeSlideIn .5s ease both;
-    }
-
-    .split-section .solution-card:nth-child(1) { animation-delay: 0s; }
-    .split-section .solution-card:nth-child(2) { animation-delay: .12s; }
 
     @keyframes fadeSlideIn {
       from {
@@ -320,78 +376,6 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
     .tech-strip-logos img:hover {
       opacity: 1;
       transform: scale(1.15);
-    }
-
-    .cto-visual {
-      display: grid;
-      gap: 14px;
-      align-content: center;
-      min-height: 500px;
-    }
-
-    .cto-card {
-      padding: 24px 28px;
-      border-radius: 24px;
-      border: 1px solid var(--line);
-      background: #fff;
-      transition: transform .22s ease, box-shadow .22s ease;
-
-      &:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 18px 50px rgba(15, 23, 42, .1);
-      }
-
-      b {
-        display: block;
-        font-size: 20px;
-        margin-bottom: 8px;
-      }
-
-      span {
-        color: #4b5563;
-        font-size: 15px;
-        line-height: 1.5;
-      }
-    }
-
-    .cto-card-1 {
-      animation: rise .6s .1s both;
-    }
-    .cto-card-2 {
-      animation: rise .6s .2s both;
-    }
-    .cto-card-3 {
-      animation: rise .6s .3s both;
-    }
-
-    .cto-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      padding-top: 118px;
-
-      article {
-        min-height: 150px;
-        padding: 24px;
-        border: 1px solid var(--line);
-        border-radius: 24px;
-        background: #fff;
-      }
-
-      strong {
-        display: block;
-        font-size: 52px;
-        line-height: 1;
-        letter-spacing: -0.04em;
-      }
-
-      span {
-        display: block;
-        max-width: 260px;
-        margin-top: 18px;
-        color: #4b5563;
-        line-height: 1.45;
-      }
     }
 
     .faq-section {
@@ -478,30 +462,30 @@ import { Component, signal, computed, OnInit, OnDestroy } from '@angular/core';
     }
 
     @media (max-width: 1040px) {
-      .cto-hero {
+      .gov-hero {
         grid-template-columns: 1fr;
       }
-      .cto-visual {
+      .gov-hero-visual {
         min-height: auto;
       }
-      .cto-stats {
+      .gov-stats {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 720px) {
-      .cto-stats {
+      .gov-stats {
         grid-template-columns: 1fr;
       }
     }
   `]
 })
-export class ConsultoriaPage implements OnInit, OnDestroy {
+export class GovtechPage implements OnInit, OnDestroy {
   protected readonly solutions = [
-    { num: '01', title: 'Diagnóstico técnico', text: 'Mapeamos o estado atual, riscos, divida técnica e oportunidades de melhoria no seu produto ou operação.', dark: false },
-    { num: '02', title: 'Arquitetura & Stack', text: 'Definimos a arquitetura ideal, escolha de tecnologias, provedores de nuvem e padrões de desenvolvimento.', dark: true },
-    { num: '03', title: 'Liderança técnica', text: 'Atuamos como CTO interino ou consultor para estruturar squads, processos e entregas com qualidade.', dark: false },
-    { num: '04', title: 'Code Review & Auditoria', text: 'Revisamos código, segurança, performance e boas práticas para garantir que sua base técnica seja sólida.', dark: true },
+    { num: '01', title: 'Fluxoo DOC', text: 'Gestão documental com rastreio, backup, auditoria e controle dos processos administrativos da prefeitura.', dark: false },
+    { num: '02', title: 'Fluxoo RH', text: 'Controle de férias, atestados, funcionários e rotinas de recursos humanos para o setor público.', dark: true },
+    { num: '03', title: 'Sites Institucionais', text: 'Sites para secretarias e prefeituras, preparados para comunicação pública com acessibilidade e transparência.', dark: false },
+    { num: '04', title: 'Fluxoo Legisla', text: 'Gestão de câmaras de vereadores com controle de sessões, proposições e atos legislativos.', dark: true },
   ];
 
   protected readonly pageIndex = signal(0);
