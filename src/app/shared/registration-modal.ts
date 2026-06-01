@@ -12,26 +12,36 @@ import { Component, Input, Output, EventEmitter, signal } from '@angular/core';
           </button>
           <div class="modal-inner">
             <div class="modal-panel modal-pressa">
-              <h3>Pronto para come&ccedil;ar?</h3>
+              <h3>Pronto para começar?</h3>
               <p>Fale diretamente conosco pelo WhatsApp e inicie seu processo de cadastro imediatamente.</p>
               <a class="button button-dark" href="https://wa.me/5585997277128" target="_blank" rel="noopener">
                 Falar no WhatsApp
               </a>
               <div class="divider"><span>ou</span></div>
-              <p style="font-size:14px;color:rgba(255,255,255,.5)">Preencha o formul&aacute;rio ao lado e retornaremos em at&eacute; 1 dia &uacute;til.</p>
+              <p style="font-size:14px;color:rgba(255,255,255,.5)">Preencha o formulário ao lado e retornaremos em até 1 dia útil.</p>
             </div>
             <div class="modal-panel modal-form">
+              @if (submitted()) {
+                <div class="modal-success">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="16 8 11 13 8 10"/>
+                  </svg>
+                  <h3>Mensagem enviada com sucesso!</h3>
+                  <p>Em breve entraremos em contato.</p>
+                </div>
+              } @else {
               <h3>Cadastro de Representante</h3>
-              <p style="font-size:14px">Pr&eacute;-cadastro r&aacute;pido. Entraremos em contato.</p>
+              <p style="font-size:14px">Pré-cadastro rápido. Entraremos em contato.</p>
               <form #form (input)="checkForm(form)" (submit)="submitForm(form, $event)">
                 <input type="text" name="nome" placeholder="Nome completo *" required (input)="checkForm(form)" />
                 <input type="email" name="email" placeholder="Seu e-mail *" required (blur)="validateEmail($event)" (input)="checkForm(form)" />
                 <input type="tel" name="whats" placeholder="Seu WhatsApp *" required (input)="maskWhatsapp($event); checkForm(form)" maxlength="17" />
                 <input type="text" name="cidade" placeholder="Cidade / Estado *" required (input)="checkForm(form)" />
                 <select name="experiencia" required (change)="checkForm(form)">
-                  <option value="">Experi&ecirc;ncia com vendas *</option>
-                  <option value="sim">Sim, j&aacute; atuo com vendas</option>
-                  <option value="nao">N&atilde;o, mas tenho interesse</option>
+                  <option value="">Experiência com vendas *</option>
+                  <option value="sim">Sim, já atuo com vendas</option>
+                  <option value="nao">Não, mas tenho interesse</option>
                 </select>
                 <select name="disponibilidade" required (change)="checkForm(form)">
                   <option value="">Disponibilidade semanal *</option>
@@ -48,6 +58,7 @@ import { Component, Input, Output, EventEmitter, signal } from '@angular/core';
                   }
                 </button>
               </form>
+              }
             </div>
           </div>
         </div>
@@ -152,7 +163,25 @@ import { Component, Input, Output, EventEmitter, signal } from '@angular/core';
         &::placeholder { color: #9ca3af; }
         &:focus { border-color: #050505; box-shadow: 0 0 0 3px rgba(5,5,5,.06); }
       }
-      select { cursor: pointer; appearance: auto; }
+      select {
+        cursor: pointer;
+        appearance: none;
+        padding: 13px 38px 13px 16px;
+        background-color: #fff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 13px center;
+        background-size: 15px;
+        box-shadow: inset 0 1px 2px rgba(5,5,5,.04);
+        &:hover { border-color: #cbd5e1; }
+        &:focus { border-color: #050505; box-shadow: 0 0 0 3px rgba(5,5,5,.06), inset 0 1px 2px rgba(5,5,5,.04); }
+      }
+      select option {
+        padding: 10px;
+        font-size: 13px;
+        background: #fff;
+        color: #050505;
+      }
       .button-enviar {
         width: 100%;
         justify-content: center;
@@ -161,6 +190,28 @@ import { Component, Input, Output, EventEmitter, signal } from '@angular/core';
         transition: opacity .25s, transform .2s;
         &:disabled { opacity: .4; pointer-events: none; }
         &:not(:disabled):hover { transform: translateY(-2px); }
+      }
+    }
+    .modal-success {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 12px;
+      min-height: 300px;
+
+      h3 {
+        margin: 0;
+        font-size: 22px;
+        letter-spacing: -.03em;
+        color: #059669;
+      }
+
+      p {
+        margin: 0;
+        color: #6b7280;
+        font-size: 15px;
       }
     }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -180,6 +231,7 @@ export class RegistrationModal {
 
   protected readonly formValid = signal(false);
   protected readonly sending = signal(false);
+  protected readonly submitted = signal(false);
 
   protected checkForm(form: HTMLFormElement) {
     const fields = form.querySelectorAll<HTMLInputElement | HTMLSelectElement>('input:not([type=radio]), select');
@@ -216,6 +268,7 @@ export class RegistrationModal {
     const conheceu = data.get('conheceu') as string;
     const body = `Novo cadastro de representante%0A%0ANome: ${nome}%0AWhatsApp: ${whats}%0AE-mail: ${email}%0ACidade/Estado: ${cidade}%0AExperiência: ${experiencia}%0ADisponibilidade: ${disponibilidade}%0AConheceu: ${conheceu}`;
     window.location.href = `mailto:zeroumbit@gmail.com?subject=Cadastro Representante - ${nome}&body=${body}`;
-    this.dismiss.emit();
+    this.sending.set(false);
+    this.submitted.set(true);
   }
 }

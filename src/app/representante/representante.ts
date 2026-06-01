@@ -10,6 +10,7 @@ interface ProdutoCard {
   ticket: string;
   comissao: string;
   dark: boolean;
+  href: string;
 }
 
 @Component({
@@ -28,40 +29,36 @@ interface ProdutoCard {
       <section class="hero rep-hero" id="inicio">
         <div class="hero-copy">
           <div class="eyebrow">Seja Representante</div>
-          <h1>Seja nosso representante em sua cidade com <span style="white-space:nowrap">ZERO investimento.</span></h1>
+          <h1>Seja nosso representante em sua cidade com ZERO investimento.</h1>
           <p>
-            Fature alto representando solu&ccedil;&otilde;es tecnol&oacute;gicas validadas e escale seu neg&oacute;cio sem riscos.
-            Suporte total, comiss&otilde;es recorrentes e exclusividade territorial.
+            Fature alto representando soluções tecnológicas validadas e escale seu negócio sem riscos.
+            Suporte total, comissões recorrentes e exclusividade territorial.
           </p>
           <div class="hero-actions">
             <a class="button button-dark" href="#" (click)="$event.preventDefault(); openRegister()">Quero ser representante</a>
-            <a class="button button-light" href="#beneficios">Ver benef&iacute;cios</a>
           </div>
         </div>
         <div class="rep-hero-visual">
           <div class="rep-hero-card rep-hero-card-1">
             <b>R$ 0</b>
-            <span>Investimento inicial zero para come&ccedil;ar</span>
+            <span>Investimento inicial zero para começar</span>
           </div>
           <div class="rep-hero-card rep-hero-card-2">
             <b>20%</b>
-            <span>Comiss&atilde;o recorrente sobre vendas</span>
+            <span>Comissão recorrente sobre vendas</span>
           </div>
           <div class="rep-hero-card rep-hero-card-3">
-            <b>+50</b>
+            <b>+10</b>
             <span>Representantes ativos em todo Brasil</span>
           </div>
         </div>
       </section>
 
-      <section class="tech-strip" aria-label="Marcas parceiras">
-        <span class="tech-strip-label">Mais de R$ 500k pagos em comiss&otilde;es aos nossos representantes</span>
-      </section>
 
       <section class="section rep-benefits-section" id="beneficios">
         <div class="section-heading">
           <span class="section-kicker">Por que ser representante?</span>
-          <h2>Benef&iacute;cios exclusivos<br>para voc&ecirc;</h2>
+          <h2>Benefícios exclusivos<br>para você</h2>
         </div>
         <div class="rep-benefits-grid">
           <article class="rep-benefit-card">
@@ -69,62 +66,62 @@ interface ProdutoCard {
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
             </div>
             <h3>Zero Investimento Inicial</h3>
-            <p>Sem taxa de franquia, sem estoque, sem custo de implanta&ccedil;&atilde;o.</p>
+            <p>Sem taxa de franquia, sem estoque, sem custo de implantação.</p>
           </article>
           <article class="rep-benefit-card">
             <div class="benefit-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="m17 5-5-3-5 3"/><path d="M5 19h14"/></svg>
             </div>
             <h3>Alta Rentabilidade</h3>
-            <p>Comiss&otilde;es de at&eacute; 50% recorrentes sobre as vendas realizadas.</p>
+            <p>Comissões de até 50% recorrentes sobre as vendas realizadas.</p>
           </article>
           <article class="rep-benefit-card">
             <div class="benefit-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
             </div>
-            <h3>Portf&oacute;lio Completo</h3>
-            <p>Represente Delivery, Marketplace, PDV, Educa&ccedil;&atilde;o e GovTech.</p>
+            <h3>Portfólio Completo</h3>
+            <p>Represente Delivery, Marketplace, PDV, Educação e GovTech.</p>
           </article>
           <article class="rep-benefit-card">
             <div class="benefit-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
             <h3>Suporte Total</h3>
-            <p>Treinamento, material de vendas e suporte t&eacute;cnico dedicado.</p>
+            <p>Treinamento e suporte técnico dedicado e totalmente escalável.</p>
           </article>
           <article class="rep-benefit-card">
             <div class="benefit-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
             <h3>Exclusividade Territorial</h3>
-            <p>Sua cidade, sua regi&atilde;o, seu mercado com atua&ccedil;&atilde;o exclusiva.</p>
+            <p>Sua cidade, sua região, seu mercado com atuação exclusiva.</p>
           </article>
           <article class="rep-benefit-card">
             <div class="benefit-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
             </div>
             <h3>Escalabilidade</h3>
-            <p>Cres&ccedil;a sem limites com produtos digitais de alta demanda.</p>
+            <p>Cresça sem limites com produtos digitais de alta demanda.</p>
           </article>
         </div>
       </section>
 
       <section class="section rep-products-section" id="produtos">
         <div class="section-heading">
-          <span class="section-kicker">O que voc&ecirc; vai vender</span>
-          <h2>Nossas solu&ccedil;&otilde;es</h2>
+          <span class="section-kicker">O que você vai vender</span>
+          <h2>Nossas soluções</h2>
         </div>
         <div class="rep-products-grid">
-          @for (prod of produtos; track prod.nome) {
-            <article class="rep-product-card" [class.dark]="prod.dark">
+          @for (prod of produtos; track prod.nome; let i = $index) {
+            <a class="rep-product-card" [class.dark]="prod.dark" [href]="prod.href" target="_blank" rel="noopener" [style.animation-delay]="i * 0.08 + 's'">
               <span class="rep-product-num">{{ prod.num }}</span>
               <h3>{{ prod.nome }}</h3>
               <p>{{ prod.descricao }}</p>
               <div class="rep-product-meta">
-                <span><b>P&uacute;blico:</b> {{ prod.publico }}</span>
-                <span><b>Comiss&atilde;o:</b> {{ prod.comissao }}</span>
+                <span><b>Público:</b> {{ prod.publico }}</span>
+                <span><b>Comissão:</b> {{ prod.comissao }}</span>
               </div>
-            </article>
+            </a>
           }
         </div>
       </section>
@@ -132,33 +129,33 @@ interface ProdutoCard {
       <section class="section rep-steps-section" id="como-funciona">
         <div class="section-heading">
           <span class="section-kicker">Como funciona</span>
-          <h2>5 passos para come&ccedil;ar<br>a faturar</h2>
+          <h2>5 passos para começar a faturar</h2>
         </div>
         <div class="rep-steps-grid">
           <article class="rep-step-card">
             <span class="rep-step-num">1</span>
             <h3>Cadastro gratuito</h3>
-            <p>Preencha o formul&aacute;rio de pr&eacute;-cadastro e nossa equipe entra em contato.</p>
+            <p>Preencha o formulário de pré-cadastro e nossa equipe entra em contato.</p>
           </article>
           <article class="rep-step-card">
             <span class="rep-step-num">2</span>
             <h3>Treinamento online</h3>
-            <p>Capacita&ccedil;&atilde;o r&aacute;pida de 2 a 4 horas sobre produtos, mercado e t&eacute;cnicas de vendas.</p>
+            <p>Capacitação rápida de 2 a 4 horas sobre produtos, mercado e técnicas de vendas.</p>
           </article>
           <article class="rep-step-card">
             <span class="rep-step-num">3</span>
             <h3>Material de vendas</h3>
-            <p>Receba apresenta&ccedil;&otilde;es, cases de sucesso, propostas e todo material informativo.</p>
+            <p>Receba apresentações, cases de sucesso, propostas e todo material informativo.</p>
           </article>
           <article class="rep-step-card">
             <span class="rep-step-num">4</span>
-            <h3>Prospec&ccedil;&atilde;o</h3>
-            <p>Identifique e abordee clientes na sua regi&atilde;o com nosso suporte comercial.</p>
+            <h3>Prospecção</h3>
+            <p>Identifique e abordee clientes na sua região com nosso suporte comercial.</p>
           </article>
           <article class="rep-step-card">
             <span class="rep-step-num">5</span>
-            <h3>Comiss&atilde;o creditada</h3>
-            <p>Venda realizada, comiss&atilde;o garantida. Receba todo m&ecirc;s sem atraso.</p>
+            <h3>Comissão creditada</h3>
+            <p>Venda realizada, comissão garantida. Receba todo mês sem atraso.</p>
           </article>
         </div>
       </section>
@@ -170,7 +167,7 @@ interface ProdutoCard {
         </div>
         <div class="rep-support-grid">
           <div class="rep-support-col">
-            <h3>N&oacute;s fornecemos</h3>
+            <h3>Nós fornecemos</h3>
             <ul class="rep-check-list">
               <li>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -178,28 +175,28 @@ interface ProdutoCard {
               </li>
               <li>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                Material informativo (apresenta&ccedil;&otilde;es, cases, propostas)
+                Material informativo (apresentações, cases, propostas)
               </li>
               <li>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                Suporte t&eacute;cnico para seus clientes
+                Suporte técnico para seus clientes
               </li>
               <li>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                Contratos e documenta&ccedil;&atilde;o padronizada
+                Contratos e documentação padronizada
               </li>
             </ul>
           </div>
           <div class="rep-support-col">
-            <h3>Voc&ecirc; cuida de</h3>
+            <h3>Você cuida de</h3>
             <ul class="rep-check-list rep-check-list-you">
               <li>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                Prospec&ccedil;&atilde;o de clientes
+                Prospecção de clientes
               </li>
               <li>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                Apresenta&ccedil;&atilde;o comercial
+                Apresentação comercial
               </li>
               <li>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
@@ -217,12 +214,12 @@ interface ProdutoCard {
       <section class="section rep-perfil-section">
         <div class="section-heading">
           <span class="section-kicker">Perfil ideal</span>
-          <h2>Voc&ecirc; &eacute; o representante<br>que buscamos se...</h2>
+          <h2>Você é o representante<br>que buscamos se...</h2>
         </div>
         <div class="rep-perfil-grid">
           <div class="rep-perfil-item">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Experi&ecirc;ncia em vendas B2B (desej&aacute;vel, n&atilde;o obrigat&oacute;rio)</span>
+            <span>Experiência em vendas B2B (desejável, não obrigatório)</span>
           </div>
           <div class="rep-perfil-item">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -234,7 +231,7 @@ interface ProdutoCard {
           </div>
           <div class="rep-perfil-item">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Boa comunica&ccedil;&atilde;o e relacionamento</span>
+            <span>Boa comunicação e relacionamento</span>
           </div>
           <div class="rep-perfil-item">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -249,13 +246,13 @@ interface ProdutoCard {
 
       <section class="section rep-comissoes-section" id="comissoes">
         <div class="section-heading">
-          <span class="section-kicker">Modelo de remunera&ccedil;&atilde;o</span>
-          <h2>Transpar&ecirc;ncia total<br>nas comiss&otilde;es</h2>
+          <span class="section-kicker">Modelo de remuneração</span>
+          <h2>Transparência total<br>nas comissões</h2>
         </div>
         <div class="rep-tabela">
           <div class="rep-tabela-header">
             <span>Produto</span>
-            <span>Comiss&atilde;o</span>
+            <span>Comissão</span>
           </div>
           <div class="rep-tabela-row">
             <span><b>temrango.com</b> <small>Delivery</small></span>
@@ -270,20 +267,20 @@ interface ProdutoCard {
             <span>30% sobre o valor do plano</span>
           </div>
           <div class="rep-tabela-row">
-            <span><b>Fluxoo Edu</b> <small>Educa&ccedil;&atilde;o</small></span>
+            <span><b>Fluxoo Edu</b> <small>Educação</small></span>
             <span>30% sobre cada contrato</span>
           </div>
           <div class="rep-tabela-row">
             <span><b>Fluxoo DOC</b> <small>GovTech</small></span>
-            <span>Valor fixo + adicionais negoci&aacute;veis</span>
+            <span>Em média R$ 2.000,00/mês</span>
           </div>
           <div class="rep-tabela-row">
             <span><b>Fluxoo LEGISLA</b> <small>GovTech</small></span>
-            <span>Valor fixo + adicionais negoci&aacute;veis</span>
+            <span>Em média R$ 2.000,00/mês</span>
           </div>
         </div>
         <div class="rep-bonus">
-          <h3>B&ocirc;nus por performance</h3>
+          <h3>Bônus por performance</h3>
           <div class="rep-bonus-grid">
             <div class="rep-bonus-card">
               <strong>10</strong>
@@ -307,20 +304,20 @@ interface ProdutoCard {
       <section class="section rep-depoimentos-section" id="depoimentos">
         <div class="section-heading">
           <span class="section-kicker">Depoimentos</span>
-          <h2>Quem j&aacute; representa<br>a ZERO1BIT</h2>
+          <h2>Quem já representa<br>a ZERO1BIT</h2>
         </div>
         <div class="rep-depoimentos-grid">
           <blockquote class="rep-depoimento-card">
-            <p>"Em 6 meses j&aacute; tenho 12 clientes e faturamento recorrente de R$ 4.200/m&ecirc;s. O suporte da ZERO1BIT &eacute; incr&iacute;vel."</p>
-            <footer>&mdash; Jo&atilde;o Silva, Representante em Fortaleza/CE</footer>
+            <p>"Nossa parceria começou em dezembro de 2025 e estamos fazendo ótimos negócios no setor publico. Usamos o Fluxoo Legisla e nossos parceiros estão muito satisfeitos. O suporte é incrível."</p>
+            <footer>— E3 Serviços - Melyssa Evilyn - CE <BR></footer>
           </blockquote>
           <blockquote class="rep-depoimento-card">
-            <p>"Comecei com zero conhecimento de tecnologia e em 2 semanas j&aacute; estava fazendo apresenta&ccedil;&otilde;es. O treinamento &eacute; muito pr&aacute;tico."</p>
-            <footer>&mdash; Maria Santos, Representante em Recife/PE</footer>
+            <p>"Usamos as equipe da Zero1bit para acelerar a implantação de um novo sistema para um de nossos clientes e o resultado foi além do esperado. Equipe competente, técnica e sem enrolação."</p>
+            <footer>— Upper Solutions - Leandro Fernandes - SP</footer>
           </blockquote>
           <blockquote class="rep-depoimento-card">
-            <p>"A exclusividade territorial fez toda diferen&ccedil;a. Sou a &uacute;nica representante na minha cidade e j&aacute; fechei contratos com 8 lojistas."</p>
-            <footer>&mdash; Ana Oliveira, Representante em Juazeiro/BA</footer>
+            <p>"Usoos times e as tecologias da Z1B, sempre me atendem. Meus clientes são empresas de energias renováveis e a Z1B é nosso parceiro oficial. Obrigado!"</p>
+            <footer>— Welingson Sales - GDWW - CE/PE/RN/PA</footer>
           </blockquote>
         </div>
       </section>
@@ -332,45 +329,45 @@ interface ProdutoCard {
         </div>
         <div class="faq-list">
           <details class="faq-item">
-            <summary>Preciso ter experi&ecirc;ncia em tecnologia?</summary>
+            <summary>Preciso ter experiência em tecnologia?</summary>
             <div class="faq-answer">
-              <p>N&atilde;o. Voc&ecirc; n&atilde;o precisa ser especialista em tecnologia. N&oacute;s fornecemos treinamento completo e material de apoio. O importante &eacute; ter vontade de vender e aprender.</p>
+              <p>Não. Você não precisa ser especialista em tecnologia. Nós fornecemos treinamento completo e material de apoio. O importante é ter vontade de vender e aprender.</p>
             </div>
           </details>
           <details class="faq-item">
-            <summary>Quanto tempo leva para come&ccedil;ar a faturar?</summary>
+            <summary>Quanto tempo leva para começar a faturar?</summary>
             <div class="faq-answer">
-              <p>Ap&oacute;s o cadastro e treinamento (2-4 horas), voc&ecirc; j&aacute; pode come&ccedil;ar a prospectar. Muitos representantes fecham os primeiros contratos nas primeiras 2 semanas.</p>
+              <p>Após o cadastro e treinamento (2-4 horas), você já pode começar a prospectar. Muitos representantes fecham os primeiros contratos nas primeiras 2 semanas.</p>
             </div>
           </details>
           <details class="faq-item">
             <summary>Posso ser representante e ter outro emprego?</summary>
             <div class="faq-answer">
-              <p>Sim! A maioria dos nossos representantes come&ccedil;a como atividade complementar. Basta ter disponibilidade de 10 a 20 horas por semana para se dedicar.</p>
+              <p>Sim! A maioria dos nossos representantes começa como atividade complementar. Basta ter disponibilidade de umas 10 horas por semana para se dedicar.</p>
             </div>
           </details>
           <details class="faq-item">
             <summary>Qual o suporte para fechar a primeira venda?</summary>
             <div class="faq-answer">
-              <p>Oferecemos acompanhamento comercial, material de apresenta&ccedil;&atilde;o e, se necess&aacute;rio, um de nossos consultores pode participar da reuni&atilde;o com voc&ecirc;.</p>
+              <p>Oferecemos acompanhamento comercial, material de apresentação e, se necessário, um de nossos consultores pode participar da reunião com você.</p>
             </div>
           </details>
           <details class="faq-item">
-            <summary>Como recebo as comiss&otilde;es?</summary>
+            <summary>Como recebo as comissões?</summary>
             <div class="faq-answer">
-              <p>As comiss&otilde;es s&atilde;o pagas mensalmente por transfer&ecirc;ncia banc&aacute;ria ou PIX, at&eacute; o dia 15 do m&ecirc;s subsequente ao faturamento.</p>
+              <p>As comissões são pagas mensalmente por transferência bancária ou PIX, até o dia 15 do mês subsequente ao faturamento.</p>
             </div>
           </details>
           <details class="faq-item">
             <summary>Tenho exclusividade na minha cidade?</summary>
             <div class="faq-answer">
-              <p>Sim. Trabalhamos com exclusividade territorial por cidade ou regi&atilde;o, garantindo que voc&ecirc; seja o &uacute;nico representante na sua &aacute;rea.</p>
+              <p>Sim. Trabalhamos com exclusividade territorial por cidade ou região, garantindo que você seja o único representante na sua área.</p>
             </div>
           </details>
           <details class="faq-item">
             <summary>Posso cancelar quando quiser?</summary>
             <div class="faq-answer">
-              <p>Sim. Sem multa ou burocracia. Voc&ecirc; pode cancelar a parceria a qualquer momento, e ainda receber&aacute; as comiss&otilde;es pendentes dos clientes que indicou.</p>
+              <p>Sim. Sem multa ou burocracia. Você pode cancelar a parceria a qualquer momento, e ainda receberá as comissões pendentes dos clientes que indicou.</p>
             </div>
           </details>
         </div>
@@ -378,12 +375,12 @@ interface ProdutoCard {
 
       <section class="rep-cta-final" id="cadastro">
         <div class="rep-cta-inner">
-          <span class="section-kicker" style="color:rgba(255,255,255,.5)">Pronto para come&ccedil;ar?</span>
+          <span class="section-kicker" style="color:rgba(5,5,5,.5)">Pronto para começar?</span>
           <h2>Cadastre-se agora<br>e comece a faturar</h2>
-          <p>Junte-se a mais de 50 representantes em todo Brasil.</p>
+          <p>Junte-se aos nosso representantes em todo Brasil.</p>
           <div class="hero-actions" style="justify-content:center;margin-top:34px">
-            <a class="button button-dark" href="#" (click)="$event.preventDefault(); openRegister()" style="border-color:#25D366;background:#25D366;color:#050505">Quero ser representante</a>
-            <a class="button button-light" href="https://wa.me/5585997277128" target="_blank" rel="noopener" style="border-color:rgba(255,255,255,.2);color:#fff">&phone; Falar com consultor</a>
+            <a class="button button-dark" href="#" (click)="$event.preventDefault(); openRegister()" style="border-color:#2563eb;background:#2563eb;color:#fff">Quero ser representante</a>
+            <a class="button button-light" href="https://wa.me/5585997277128" target="_blank" rel="noopener" style="border-color:#2563eb;color:#2563eb"><span style="color:#2563eb">📞</span> Falar com consultor</a>
           </div>
         </div>
       </section>
@@ -394,10 +391,10 @@ interface ProdutoCard {
             <img src="/ZEROUM.svg" alt="ZERO1BIT" />
             <span>ZERO1BIT</span>
           </a>
-          <p>Venture Builder. Criamos, aceleramos e escalamos tecnologias que conectam o setor privado e p&uacute;blico ao futuro.</p>
+          <p>Venture Builder. Criamos, aceleramos e escalamos tecnologias que conectam o setor privado e público ao futuro.</p>
         </div>
         <div>
-          <h4>Solu&ccedil;&otilde;es</h4>
+          <h4>Soluções</h4>
           <a href="/#produtos">temrango</a>
           <a href="/#produtos">pescaprecos</a>
           <a href="/#produtos">Essencial PDV</a>
@@ -414,7 +411,7 @@ interface ProdutoCard {
           <h4>Contato</h4>
           <a href="tel:+5585997277128">(85) 9 9727-7128</a>
           <a href="mailto:zeroumbit@gmail.com">zeroumbit&#64;gmail.com</a>
-          <span>Canind&eacute;/CE (sede)</span>
+          <span>Canindé/CE (sede)</span>
         </div>
         <small>CNPJ 21.582.343/0001-81 | Uma empresa pescaprecos.com</small>
       </footer>
@@ -570,8 +567,10 @@ interface ProdutoCard {
       border: 1px solid var(--line);
       border-radius: 30px;
       background: #f7f8f9;
+      color: inherit;
+      text-decoration: none;
       animation: fadeSlideIn .5s ease both;
-      transition: transform .22s ease, background .22s ease;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
 
       &.dark {
         background: #050505;
@@ -582,7 +581,12 @@ interface ProdutoCard {
       }
 
       &:hover {
-        transform: translateY(-4px);
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(15, 23, 42, .12);
+      }
+
+      &.dark:hover {
+        box-shadow: 0 16px 40px rgba(5, 5, 5, .3);
       }
     }
 
@@ -904,8 +908,11 @@ interface ProdutoCard {
     .rep-cta-final {
       margin-top: 108px;
       padding: 80px 24px;
-      background: #050505;
-      color: #fff;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 85% 15%, rgba(24,199,223,.18), transparent 16rem),
+        #f7f8f9;
+      color: #050505;
       text-align: center;
       border-radius: 40px;
     }
@@ -923,7 +930,7 @@ interface ProdutoCard {
     }
 
     .rep-cta-final p {
-      color: rgba(255,255,255,.6);
+      color: rgba(5,5,5,.6);
       font-size: 18px;
       line-height: 1.6;
       margin-top: 20px;
@@ -1076,33 +1083,39 @@ export class RepresentantePage {
   protected readonly produtos: ProdutoCard[] = [
     {
       num: '01', nome: 'temrango.com',
-      descricao: 'Plataforma de delivery com 0% de comiss&atilde;o para lojistas. Restaurantes, mercados, petshops e bebidas.',
-      publico: 'Lojistas locais', ticket: 'R$ 97-297/m&ecirc;s', comissao: '30% a 50%', dark: false
+      descricao: 'Plataforma de delivery com 0% de comissão para lojistas. Restaurantes, mercados, petshops e bebidas.',
+      publico: 'Lojistas locais', ticket: 'R$ 97-297/mês', comissao: '30% a 50%', dark: false,
+      href: 'https://lojista.temrango.com.br/'
     },
     {
       num: '02', nome: 'pescaprecos.com',
       descricao: 'Marketplace para lojistas locais venderem online sem burocracia. Descoberta de ofertas regionais.',
-      publico: 'Com&eacute;rcio local', ticket: 'R$ 97-197/m&ecirc;s', comissao: '30% a 50%', dark: true
+      publico: 'Varejistas', ticket: 'R$ 97-197/mês', comissao: '30% a 50%', dark: true,
+      href: 'https://lojista.pescaprecos.com.br/'
     },
     {
       num: '03', nome: 'Essencial PDV',
       descricao: 'Sistema de vendas completo para varejo: controle de caixa, produtos, estoque e financeiro.',
-      publico: 'Varejistas', ticket: 'R$ 67-147/m&ecirc;s', comissao: '30%', dark: false
+      publico: 'Varejistas', ticket: 'R$ 67-147/mês', comissao: '30%', dark: false,
+      href: '#'
     },
     {
       num: '04', nome: 'Fluxoo Edu',
-      descricao: 'Gest&atilde;o educacional para escolas: matr&iacute;culas, notas, frequ&ecirc;ncia e comunica&ccedil;&atilde;o com pais.',
-      publico: 'Escolas e faculdades', ticket: 'R$ 197-497/m&ecirc;s', comissao: '30%', dark: true
+      descricao: 'Gestão educacional para escolas: matrículas, notas, frequência e comunicação com pais.',
+      publico: 'Escolas e faculdades', ticket: 'R$ 197-497/mês', comissao: '30%', dark: true,
+      href: 'https://fluxoo-educacao.vercel.app/'
     },
     {
       num: '05', nome: 'Fluxoo DOC',
-      descricao: 'Gest&atilde;o documental para prefeituras com rastreio, backup, auditoria e controle de processos.',
-      publico: 'Prefeituras', ticket: 'Valor fixo + adicionais', comissao: 'Negoci&aacute;vel', dark: false
+      descricao: 'Gestão documental para prefeituras com rastreio, backup, auditoria e controle de processos.',
+      publico: 'Prefeituras', ticket: 'Valor fixo + adicionais', comissao: 'Negociável', dark: false,
+      href: 'https://doc.fluxoo.com.br/login'
     },
     {
       num: '06', nome: 'Fluxoo LEGISLA',
-      descricao: 'Gest&atilde;o de c&acirc;maras de vereadores: sess&otilde;es, proposi&ccedil;&otilde;es e atos legislativos.',
-      publico: 'C&acirc;maras municipais', ticket: 'Valor fixo + adicionais', comissao: 'Negoci&aacute;vel', dark: true
+      descricao: 'Gestão de câmaras de vereadores: sessões, proposições e atos legislativos.',
+      publico: 'Câmaras de vereadores', ticket: 'Valor fixo + adicionais', comissao: 'Negociável', dark: true,
+      href: '#'
     },
   ];
 }

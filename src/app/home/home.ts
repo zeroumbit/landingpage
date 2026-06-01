@@ -34,7 +34,7 @@ interface ProductCard {
           <span class="nav-label">(85) 9 9727-7128</span>
         </a>
         <a class="button button-dark" href="#" (click)="$event.preventDefault(); openModal()">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="nav-envelope" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="4" width="20" height="16" rx="2"/>
             <path d="m22 7-10 7L2 7"/>
           </svg>
@@ -74,18 +74,18 @@ interface ProductCard {
       </section>
 
       <section class="trusted-strip" aria-label="Áreas de atuação">
-        <span>Delivery</span>
-        <span>Marketplace</span>
-        <span>PDV</span>
-        <span>Finanças</span>
-        <span>GovTech</span>
-        <span>CTO as a Service</span>
+        <article class="trusted-card">Delivery</article>
+        <article class="trusted-card">Marketplace</article>
+        <article class="trusted-card">PDV</article>
+        <article class="trusted-card">Finanças</article>
+        <article class="trusted-card">GovTech</article>
+        <article class="trusted-card">CTO as a Service</article>
       </section>
 
       <section class="stats">
         <article>
-          <strong>6+</strong>
-          <span>produtos e frentes digitais em operação</span>
+          <strong>10+</strong>
+          <span>Produtos próprios e frentes digitais em operação</span>
         </article>
         <article>
           <strong>0%</strong>
@@ -93,14 +93,14 @@ interface ProductCard {
         </article>
         <article>
           <strong>LGPD</strong>
-          <span>arquitetura pronta para auditoria e segurança</span>
+          <span>Arquitetura pronta para auditoria e segurança</span>
         </article>
       </section>
 
       <section class="section split-section" id="solucoes">
         <div class="section-copy">
           <span class="section-kicker">Sua visão, nossa engenharia</span>
-          <h2>Uma fábrica de software para criar, validar e <span style="white-space:nowrap">escalar sistemas.</span></h2>
+          <h2>Uma fábrica de software para criar, validar e escalar sistemas.</h2>
           <p>
             Usamos a mesma base técnica das nossas startups para construir apps, portais,
             sistemas de gestão, integrações e automações com velocidade de produto.
@@ -120,6 +120,252 @@ interface ProductCard {
             <p>Estratégia técnica, arquitetura, decisão de stack e acompanhamento para reduzir desperdício de tempo e capital.</p>
             <a href="#" (click)="$event.preventDefault(); openModal()">Falar com especialista</a>
           </article>
+        </div>
+      </section>
+
+      <section class="section ai-section" id="ai">
+        <div class="ai-bg">
+          <svg class="ai-nodes" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+            <circle cx="180" cy="120" r="3" fill="rgba(23,200,220,.25)"/>
+            <circle cx="340" cy="80" r="2" fill="rgba(23,200,220,.2)"/>
+            <circle cx="520" cy="160" r="3" fill="rgba(23,200,220,.25)"/>
+            <circle cx="700" cy="100" r="2" fill="rgba(23,200,220,.2)"/>
+            <circle cx="860" cy="180" r="3" fill="rgba(23,200,220,.25)"/>
+            <circle cx="1020" cy="90" r="2" fill="rgba(23,200,220,.2)"/>
+            <circle cx="120" cy="280" r="2" fill="rgba(23,200,220,.2)"/>
+            <circle cx="300" cy="350" r="3" fill="rgba(23,200,220,.25)"/>
+            <circle cx="480" cy="300" r="2" fill="rgba(23,200,220,.2)"/>
+            <circle cx="650" cy="380" r="3" fill="rgba(23,200,220,.25)"/>
+            <circle cx="820" cy="320" r="2" fill="rgba(23,200,220,.2)"/>
+            <circle cx="1000" cy="400" r="3" fill="rgba(23,200,220,.25)"/>
+            <circle cx="1100" cy="280" r="2" fill="rgba(23,200,220,.2)"/>
+            <circle cx="250" cy="500" r="3" fill="rgba(23,200,220,.25)"/>
+            <circle cx="550" cy="520" r="2" fill="rgba(23,200,220,.2)"/>
+            <circle cx="800" cy="500" r="3" fill="rgba(23,200,220,.25)"/>
+            <circle cx="950" cy="550" r="2" fill="rgba(23,200,220,.2)"/>
+            <line x1="180" y1="120" x2="340" y2="80" stroke="rgba(23,200,220,.06)" stroke-width="1"/>
+            <line x1="340" y1="80" x2="520" y2="160" stroke="rgba(23,200,220,.06)" stroke-width="1"/>
+            <line x1="520" y1="160" x2="700" y2="100" stroke="rgba(23,200,220,.06)" stroke-width="1"/>
+            <line x1="700" y1="100" x2="860" y2="180" stroke="rgba(23,200,220,.06)" stroke-width="1"/>
+            <line x1="860" y1="180" x2="1020" y2="90" stroke="rgba(23,200,220,.06)" stroke-width="1"/>
+            <line x1="120" y1="280" x2="300" y2="350" stroke="rgba(23,200,220,.06)" stroke-width="1"/>
+            <line x1="300" y1="350" x2="480" y2="300" stroke="rgba(23,200,220,.06)" stroke-width="1"/>
+            <line x1="480" y1="300" x2="650" y2="380" stroke="rgba(23,200,220,.06)" stroke-width="1"/>
+            <line x1="650" y1="380" x2="820" y2="320" stroke="rgba(23,200,220,.06)" stroke-width="1"/>
+            <line x1="820" y1="320" x2="1000" y2="400" stroke="rgba(23,200,220,.06)" stroke-width="1"/>
+            <line x1="1000" y1="400" x2="1100" y2="280" stroke="rgba(23,200,220,.06)" stroke-width="1"/>
+            <line x1="250" y1="500" x2="550" y2="520" stroke="rgba(23,200,220,.06)" stroke-width="1"/>
+            <line x1="550" y1="520" x2="800" y2="500" stroke="rgba(23,200,220,.06)" stroke-width="1"/>
+            <line x1="800" y1="500" x2="950" y2="550" stroke="rgba(23,200,220,.06)" stroke-width="1"/>
+          </svg>
+          <div class="ai-particle" style="--x:15%;--y:18%;--d:0s"></div>
+          <div class="ai-particle" style="--x:82%;--y:25%;--d:0.4s"></div>
+          <div class="ai-particle" style="--x:45%;--y:70%;--d:0.8s"></div>
+          <div class="ai-particle" style="--x:28%;--y:55%;--d:1.2s"></div>
+          <div class="ai-particle" style="--x:72%;--y:12%;--d:0.2s"></div>
+          <div class="ai-particle-lg" style="--x:12%;--y:65%;--d:0.6s"></div>
+          <div class="ai-particle-lg" style="--x:88%;--y:45%;--d:1s"></div>
+        </div>
+
+        <div class="section-heading">
+          <span class="section-kicker ai-kicker">
+            <span class="ai-dot"></span>
+            Inteligência Artificial
+          </span>
+          <h2 class="ai-title">
+            <span>IA aplicada a</span>
+            <span class="ai-gradient-text">projetos reais.</span>
+          </h2>
+        </div>
+
+        <div class="ai-terminal-lg">
+          <div class="ai-terminal-bar">
+            <span></span><span></span><span></span>
+            <span class="ai-terminal-bar-label">zeroumbit@ai:~$</span>
+          </div>
+          <div class="ai-terminal-body">
+            <div class="ai-thinking">
+              <span class="ai-thinking-text">Pensando</span>
+              <span class="ai-thinking-dots">
+                <span>.</span><span>.</span><span>.</span>
+              </span>
+            </div>
+            <div class="ai-terminal-scroll">
+              <div class="ai-scroll-content">
+                <div class="ai-rotating-wrapper">
+                  <span class="ai-terminal-prompt" style="width:auto">$</span>
+                  <span class="ai-rotating">
+                    <span>automação inteligente</span>
+                    <span>sistemas preditivos</span>
+                    <span>análise de dados</span>
+                  </span>
+                </div>
+
+                <p class="ai-desc">
+                  Integramos modelos de IA em produtos e operações — de automação inteligente
+                  a sistemas preditivos — para empresas que querem entregar mais com tecnologia.
+                </p>
+
+                <div class="ai-terminal-section-label">// módulos disponíveis</div>
+
+                <div class="ai-grid">
+                  <article class="ai-card">
+                    <div class="ai-card-head">
+                      <div class="ai-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M12 2a4 4 0 0 1 4 4c0 2-2 3-4 5-2-2-4-3-4-5a4 4 0 0 1 4-4z"/>
+                          <path d="M2 22v-2a6 6 0 0 1 6-6h8a6 6 0 0 1 6 6v2"/>
+                        </svg>
+                      </div>
+                      <span class="ai-card-badge">Python • TensorFlow • PyTorch</span>
+                    </div>
+                    <h3>Modelos sob medida</h3>
+                    <p>Treinamos e adaptamos modelos de IA para o contexto e os dados do seu negócio.</p>
+                  </article>
+                  <article class="ai-card">
+                    <div class="ai-card-head">
+                      <div class="ai-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                      </div>
+                      <span class="ai-card-badge">RPA • Workflows • APIs</span>
+                    </div>
+                    <h3>Automação inteligente</h3>
+                    <p>Fluxos que aprendem e se adaptam, reduzindo tarefas manuais e acelerando decisões.</p>
+                  </article>
+                  <article class="ai-card">
+                    <div class="ai-card-head">
+                      <div class="ai-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                          <circle cx="12" cy="12" r="10"/>
+                          <line x1="2" y1="12" x2="22" y2="12"/>
+                          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                      </div>
+                      <span class="ai-card-badge">AWS • GCP • Azure • Docker</span>
+                    </div>
+                    <h3>IA em produção</h3>
+                    <p>Da prova de conceito ao deploy — implantamos IA escalável em produtos e operações reais.</p>
+                  </article>
+                </div>
+
+                <div class="ai-terminal-section-label">// resultados em produção</div>
+
+                <div class="ai-metrics">
+                  <div class="ai-metric">
+                    <strong class="ai-metric-num">3+</strong>
+                    <span class="ai-metric-label">Projetos de IA entregues</span>
+                  </div>
+                  <div class="ai-metric">
+                    <strong class="ai-metric-num">85%</strong>
+                    <span class="ai-metric-label">Redução de processos manuais</span>
+                  </div>
+                  <div class="ai-metric">
+                    <strong class="ai-metric-num">24/7</strong>
+                    <span class="ai-metric-label">Modelos em produção monitorados</span>
+                  </div>
+                </div>
+
+                <div class="ai-terminal-lines">
+                  <span class="ai-terminal-cline"><span class="ai-terminal-prompt">$</span> iniciar deploy —all</span>
+                  <span class="ai-terminal-cline"><span class="ai-terminal-prompt">✓</span> carregando dataset</span>
+                  <span class="ai-terminal-cline"><span class="ai-terminal-prompt">►</span> treinando rede neural <span class="ai-terminal-progress">87%</span></span>
+                  <span class="ai-terminal-cline"><span class="ai-terminal-prompt">✓</span> deploy em produção</span>
+                  <span class="ai-terminal-cline ai-terminal-cursor"><span class="ai-terminal-prompt">●</span> modelo ativo e monitorado</span>
+                </div>
+              </div>
+
+              <div class="ai-scroll-content" aria-hidden="true">
+                <div class="ai-rotating-wrapper">
+                  <span class="ai-terminal-prompt" style="width:auto">$</span>
+                  <span class="ai-rotating">
+                    <span>automação inteligente</span>
+                    <span>sistemas preditivos</span>
+                    <span>análise de dados</span>
+                  </span>
+                </div>
+
+                <p class="ai-desc">
+                  Integramos modelos de IA em produtos e operações — de automação inteligente
+                  a sistemas preditivos — para empresas que querem entregar mais com tecnologia.
+                </p>
+
+                <div class="ai-terminal-section-label">// módulos disponíveis</div>
+
+                <div class="ai-grid">
+                  <article class="ai-card">
+                    <div class="ai-card-head">
+                      <div class="ai-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M12 2a4 4 0 0 1 4 4c0 2-2 3-4 5-2-2-4-3-4-5a4 4 0 0 1 4-4z"/>
+                          <path d="M2 22v-2a6 6 0 0 1 6-6h8a6 6 0 0 1 6 6v2"/>
+                        </svg>
+                      </div>
+                      <span class="ai-card-badge">Python • TensorFlow • PyTorch</span>
+                    </div>
+                    <h3>Modelos sob medida</h3>
+                    <p>Treinamos e adaptamos modelos de IA para o contexto e os dados do seu negócio.</p>
+                  </article>
+                  <article class="ai-card">
+                    <div class="ai-card-head">
+                      <div class="ai-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                      </div>
+                      <span class="ai-card-badge">RPA • Workflows • APIs</span>
+                    </div>
+                    <h3>Automação inteligente</h3>
+                    <p>Fluxos que aprendem e se adaptam, reduzindo tarefas manuais e acelerando decisões.</p>
+                  </article>
+                  <article class="ai-card">
+                    <div class="ai-card-head">
+                      <div class="ai-card-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                          <circle cx="12" cy="12" r="10"/>
+                          <line x1="2" y1="12" x2="22" y2="12"/>
+                          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                      </div>
+                      <span class="ai-card-badge">AWS • GCP • Azure • Docker</span>
+                    </div>
+                    <h3>IA em produção</h3>
+                    <p>Da prova de conceito ao deploy — implantamos IA escalável em produtos e operações reais.</p>
+                  </article>
+                </div>
+
+                <div class="ai-terminal-section-label">// resultados em produção</div>
+
+                <div class="ai-metrics">
+                  <div class="ai-metric">
+                    <strong class="ai-metric-num">50+</strong>
+                    <span class="ai-metric-label">Projetos de IA entregues</span>
+                  </div>
+                  <div class="ai-metric">
+                    <strong class="ai-metric-num">85%</strong>
+                    <span class="ai-metric-label">Redução de processos manuais</span>
+                  </div>
+                  <div class="ai-metric">
+                    <strong class="ai-metric-num">24/7</strong>
+                    <span class="ai-metric-label">Modelos em produção monitorados</span>
+                  </div>
+                </div>
+
+                <div class="ai-terminal-lines">
+                  <span class="ai-terminal-cline"><span class="ai-terminal-prompt">$</span> iniciar deploy —all</span>
+                  <span class="ai-terminal-cline"><span class="ai-terminal-prompt">✓</span> carregando dataset</span>
+                  <span class="ai-terminal-cline"><span class="ai-terminal-prompt">►</span> treinando rede neural <span class="ai-terminal-progress">87%</span></span>
+                  <span class="ai-terminal-cline"><span class="ai-terminal-prompt">✓</span> deploy em produção</span>
+                  <span class="ai-terminal-cline ai-terminal-cursor"><span class="ai-terminal-prompt">●</span> modelo ativo e monitorado</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ai-cta">
+          <a class="button button-dark" href="#" (click)="$event.preventDefault(); openModal()">Quero aplicar IA no meu projeto</a>
         </div>
       </section>
 
@@ -147,20 +393,23 @@ interface ProductCard {
 
       <section class="section gov-section" id="govtech">
         <div class="gov-shell">
-          <div class="section-copy">
-            <span class="section-kicker">GovTech</span>
-            <h2>Transformação digital para <span style="white-space:nowrap">gestão pública.</span></h2>
-            <p>
-              Plataformas auditáveis e seguras para reduzir custos, digitalizar processos
-              e organizar rotinas de prefeituras, secretarias e operações públicas.
-            </p>
-            <ul>
-              <li>Desenvolvimento sob demanda</li>
-              <li>Sistemas de gestão inteligentes</li>
-              <li>Aderência a LGPD e LAI</li>
-              <li>Backup na nuvem</li>
-              <li>Redução de custos e paperless</li>
-            </ul>
+          <div class="gov-left">
+            <div class="section-copy">
+              <span class="section-kicker">GovTech</span>
+              <h2>Transformação digital para <span style="white-space:nowrap">gestão pública.</span></h2>
+              <p>
+                Plataformas auditáveis e seguras para reduzir custos, digitalizar processos
+                e organizar rotinas de prefeituras, secretarias e operações públicas.
+              </p>
+              <ul>
+                <li>Desenvolvimento sob demanda</li>
+                <li>Sistemas de gestão inteligentes</li>
+                <li>Aderência a LGPD e LAI</li>
+                <li>Backup na nuvem</li>
+                <li>Redução de custos e paperless</li>
+              </ul>
+            </div>
+            <a class="button button-dark" href="/govtech" target="_blank" rel="noopener" style="margin-top:10px">Saiba mais &rarr;</a>
           </div>
 
           <div class="gov-cards">
@@ -173,7 +422,6 @@ interface ProductCard {
               </a>
             }
           </div>
-          <a class="button button-dark" href="/govtech" target="_blank" rel="noopener" style="justify-self:start;margin-top:10px">Saiba mais &rarr;</a>
         </div>
       </section>
 
@@ -216,7 +464,7 @@ interface ProductCard {
           <a href="#produtos">temrango.com</a>
           <a href="#produtos">pescaprecos.com</a>
           <a href="#produtos">Essencial PDV</a>
-          <a href="#produtos">Fluxoo EDU</a>
+          <a href="https://fluxoo-educacao.vercel.app/" target="_blank" rel="noopener">Fluxoo EDU</a>
         </div>
 
         <div>
@@ -251,7 +499,7 @@ export class HomePage {
     { name: 'temrango', src: '/temrango.png', href: 'https://lojista.temrango.com.br/' },
     { name: 'Fluxoo DOC', src: '/fluxoo-doc.png', href: 'https://doc.fluxoo.com.br/login' },
     { name: 'pescaprecos', src: '/pescaprecos.png', href: 'https://lojista.pescaprecos.com.br/' },
-    { name: 'Fluxoo EDU', src: '/fluxoo-edu.png', href: '#' },
+    { name: 'Fluxoo EDU', src: '/fluxoo-edu.png', href: 'https://fluxoo-educacao.vercel.app/' },
     { name: 'Essencial PDV', src: '/essencial.png', href: '#' },
   ];
 
@@ -277,7 +525,7 @@ export class HomePage {
       name: 'Fluxoo EDU',
       description: 'Ambiente para organizar rotinas educacionais, dados institucionais e fluxos digitais de acompanhamento.',
       accent: '#f4f6f8',
-      href: '#',
+      href: 'https://fluxoo-educacao.vercel.app/',
       mockup: '/mockup-fluxoo-edu.svg',
     },
     {

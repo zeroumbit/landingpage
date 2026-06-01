@@ -13,13 +13,23 @@ import { Component, Input, Output, EventEmitter, signal } from '@angular/core';
           <div class="modal-inner">
             <div class="modal-panel modal-pressa">
               <h3>Estou com pressa</h3>
-              <p>Fale diretamente conosco pelo WhatsApp e receba atendimento imediato em horário comércial.</p>
+              <p>Fale diretamente conosco pelo WhatsApp e receba atendimento imediato em horário comercial.</p>
               <a class="button button-dark" href="https://wa.me/5585997277128" target="_blank" rel="noopener">
                 <img src="/icon-whatsapp.svg" alt="" width="20" height="20" />
                 Chamar no WhatsApp
               </a>
             </div>
             <div class="modal-panel modal-form">
+              @if (submitted()) {
+                <div class="modal-success">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="16 8 11 13 8 10"/>
+                  </svg>
+                  <h3>Mensagem enviada com sucesso!</h3>
+                  <p>Em breve entraremos em contato.</p>
+                </div>
+              } @else {
               <h3>Posso esperar um pouco</h3>
               <p>Deixe seus dados e retornaremos em até 1 dia útil.</p>
               <form #form (input)="checkForm(form)" (submit)="submitForm(form, $event)">
@@ -46,6 +56,7 @@ import { Component, Input, Output, EventEmitter, signal } from '@angular/core';
                     }
                   </button>
               </form>
+              }
             </div>
           </div>
         </div>
@@ -211,6 +222,29 @@ import { Component, Input, Output, EventEmitter, signal } from '@angular/core';
       }
     }
 
+    .modal-success {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 12px;
+      min-height: 300px;
+
+      h3 {
+        margin: 0;
+        font-size: 22px;
+        letter-spacing: -.03em;
+        color: #059669;
+      }
+
+      p {
+        margin: 0;
+        color: #6b7280;
+        font-size: 15px;
+      }
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -252,6 +286,7 @@ export class ContactModal {
 
   protected readonly formValid = signal(false);
   protected readonly sending = signal(false);
+  protected readonly submitted = signal(false);
 
   protected checkForm(form: HTMLFormElement) {
     const inputs = form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('input:not([type=radio]), textarea');
@@ -287,6 +322,7 @@ export class ContactModal {
     const descricao = data.get('descricao') as string;
     const body = `Tipo: ${tipo}%0ANome: ${nome}%0AWhatsApp: ${whats}%0AE-mail: ${email}%0A%0A${descricao}`;
     window.location.href = `mailto:zeroumbit@gmail.com?subject=${encodeURIComponent(assunto)}&body=${body}`;
-    this.dismiss.emit();
+    this.sending.set(false);
+    this.submitted.set(true);
   }
 }
