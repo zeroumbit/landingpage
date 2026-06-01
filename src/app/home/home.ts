@@ -89,7 +89,7 @@ interface ProductCard {
         </article>
         <article>
           <strong>0%</strong>
-          <span>Lojistas não pagam comissão no temrango.com</span>
+          <span>Lojistas não pagam comissão no temrango e no pescapreços</span>
         </article>
         <article>
           <strong>LGPD</strong>
