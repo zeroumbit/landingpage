@@ -542,7 +542,7 @@ export class HomePage {
     { label: 'Documentos', title: 'Fluxoo DOC', text: 'Gestão documental com rastreio, backup, auditoria e controle dos processos.', href: 'https://doc.fluxoo.com.br/login' },
     { label: 'RH', title: 'Fluxoo RH', text: 'Controle de férias, atestados, funcionários e rotinas de recursos humanos.', href: '#' },
     { label: 'Portais', title: 'Sites institucionais', text: 'Sites para secretarias e prefeituras, preparados para comunicação pública.', href: '/govtech' },
-    { label: 'Legisla', title: 'Fluxoo Legisla', text: 'Gestão de câmaras de vereadores com controle de\u00A0sessões, proposições e atos legislativos.', href: '#' },
+    { label: 'Legisla', title: 'Fluxoo Legisla', text: 'Gestão de câmaras de vereadores com controle de sessões, proposições e atos legislativos.', href: '#' },
   ];
 
   protected readonly flows = [
