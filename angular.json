@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "landingoage": {
+    "landingpage": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -86,10 +86,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "landingoage:build:production"
+              "buildTarget": "landingpage:build:production"
             },
             "development": {
-              "buildTarget": "landingoage:build:development"
+              "buildTarget": "landingpage:build:development"
             }
           },
           "defaultConfiguration": "development"
